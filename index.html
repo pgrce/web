@@ -37,17 +37,15 @@
     }
 
     *{box-sizing:border-box}
-
-    /* FIX: konzistentna pozadina bez "prijeloma" na dnu */
     html, body{height:100%}
+
+    /* konzistentna pozadina bez "prijeloma" */
     body{
       margin:0;
       min-height:100vh;
       font-family:"Montserrat", system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
       color:var(--text);
       line-height:1.55;
-
-      /* Background slojevi + fixed da se ne vidi "rez" pri scrollu */
       background:
         radial-gradient(900px 500px at 10% 10%, rgba(110,168,255,.25), transparent 60%),
         radial-gradient(900px 500px at 90% 20%, rgba(124,247,198,.18), transparent 60%),
@@ -56,8 +54,6 @@
       background-repeat:no-repeat;
       background-size:cover;
     }
-
-    /* dodatni "overlay" da se banding ne vidi */
     body::before{
       content:"";
       position:fixed;
@@ -112,18 +108,19 @@
       background:rgba(16,26,51,.85);
       border-radius:var(--radius);
       box-shadow:var(--shadow);
-      padding:26px 22px 22px; /* elegantniji osjećaj: više zraka gore */
+      padding:26px 22px 22px; /* više zraka gore */
       backdrop-filter:blur(8px);
     }
 
     h1{
-      margin:6px 0 10px; /* malo zraka odozgo */
+      margin:6px 0 10px;
       font-size:36px;
       line-height:1.15;
     }
     @media (max-width:520px){ h1{font-size:30px} }
     .lead{margin:0 0 14px; color:var(--muted)}
 
+    /* BADGES */
     .badges{
       display:flex;
       gap:10px;
@@ -131,12 +128,27 @@
       margin-top:18px;
     }
     .badge{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
       font-size:12px;
       background:rgba(255,255,255,.06);
       border:1px solid rgba(255,255,255,.12);
-      padding:8px 12px; /* malo premium */
+      padding:8px 12px;
       border-radius:999px;
       white-space:nowrap;
+
+      /* micro-animation: samo opacity */
+      opacity:.92;
+      transition: opacity .16s ease;
+    }
+    .badge:hover{ opacity:1; }
+
+    .badge svg{
+      width:16px;
+      height:16px;
+      flex:0 0 16px;
+      color:rgba(234,240,255,.85);
     }
 
     .section{margin-top:14px}
@@ -161,11 +173,7 @@
       outline:none;
     }
     textarea{min-height:110px; resize:vertical}
-
-    input::placeholder,
-    textarea::placeholder{
-      color: rgba(183,195,230,.65);
-    }
+    input::placeholder, textarea::placeholder{ color: rgba(183,195,230,.65); }
 
     .btn{
       display:inline-flex;
@@ -176,16 +184,13 @@
       font-weight:600;
       border:none;
       cursor:pointer;
-      transition: transform .15s ease, filter .15s ease;
+      transition: filter .15s ease; /* bez pomicanja */
     }
     .btn.primary{
       background:linear-gradient(135deg, var(--accent), var(--accent2));
       color:#071022;
     }
-    .btn.primary:hover{
-      filter: brightness(1.05);
-      transform: translateY(-1px);
-    }
+    .btn.primary:hover{ filter: brightness(1.05); }
 
     /* FOOTER */
     .footer{
@@ -200,10 +205,87 @@
 </head>
 
 <body>
+
+  <!-- SVG SPRITE: ikonice za badgeve (jednom u dokumentu) -->
+  <svg xmlns="http://www.w3.org/2000/svg" style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true" focusable="false">
+    <!-- Računala -->
+    <symbol id="i-device" viewBox="0 0 16 16">
+      <rect x="2" y="3" width="12" height="8" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.2"/>
+      <path d="M6 13h4" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+      <path d="M4 13h8" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" opacity=".6"/>
+    </symbol>
+
+    <!-- Poslužitelji -->
+    <symbol id="i-server" viewBox="0 0 16 16">
+      <rect x="3" y="2.5" width="10" height="4" rx="1.2" fill="none" stroke="currentColor" stroke-width="1.2"/>
+      <rect x="3" y="9.5" width="10" height="4" rx="1.2" fill="none" stroke="currentColor" stroke-width="1.2"/>
+      <circle cx="5.2" cy="4.5" r=".6" fill="currentColor"/>
+      <circle cx="5.2" cy="11.5" r=".6" fill="currentColor"/>
+      <path d="M7 4.5h5M7 11.5h5" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" opacity=".75"/>
+    </symbol>
+
+    <!-- Sigurnosna kopija (backup) -->
+    <symbol id="i-backup" viewBox="0 0 16 16">
+      <path d="M8 3a5 5 0 1 0 5 5"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.2"
+            stroke-linecap="round"/>
+      <path d="M11 3h2v2"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.2"
+            stroke-linecap="round"
+            stroke-linejoin="round"/>
+      <path d="M13 3l-2.2 2.2"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.2"
+            stroke-linecap="round"/>
+    </symbol>
+
+    <!-- Mreže -->
+    <symbol id="i-network" viewBox="0 0 16 16">
+      <circle cx="3" cy="8" r="1.2" fill="none" stroke="currentColor" stroke-width="1.2"/>
+      <circle cx="13" cy="4" r="1.2" fill="none" stroke="currentColor" stroke-width="1.2"/>
+      <circle cx="13" cy="12" r="1.2" fill="none" stroke="currentColor" stroke-width="1.2"/>
+      <path d="M4.2 8L11.9 4.6M4.2 8l7.7 3.4" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+    </symbol>
+
+    <!-- Sigurnost -->
+    <symbol id="i-shield" viewBox="0 0 16 16">
+      <path d="M8 2.2l5 2v4.3c0 3.3-2.2 5.5-5 6.6-2.8-1.1-5-3.3-5-6.6V4.2l5-2Z"
+            fill="none" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/>
+      <path d="M6.2 8.2l1.2 1.3 2.6-2.7"
+            fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+
+    <!-- IoT (circuit/nodes: central + 4 nodes) -->
+    <symbol id="i-iot" viewBox="0 0 16 16">
+      <circle cx="8" cy="8" r="2" fill="none" stroke="currentColor" stroke-width="1.2"/>
+      <circle cx="3" cy="3" r="1" fill="currentColor"/>
+      <circle cx="13" cy="3" r="1" fill="currentColor"/>
+      <circle cx="13" cy="13" r="1" fill="currentColor"/>
+      <circle cx="3" cy="13" r="1" fill="currentColor"/>
+      <path d="M4.2 4.2L6.6 6.6M11.8 4.2L9.4 6.6M11.8 11.8L9.4 9.4M4.2 11.8L6.6 9.4"
+            fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+    </symbol>
+
+    <!-- Edukacije -->
+    <symbol id="i-cap" viewBox="0 0 16 16">
+      <path d="M2 6l6-3 6 3-6 3-6-3Z"
+            fill="none" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/>
+      <path d="M4.2 7.1V10c0 .9 1.7 1.8 3.8 1.8S11.8 10.9 11.8 10V7.1"
+            fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+      <path d="M14 6v4"
+            fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" opacity=".75"/>
+    </symbol>
+  </svg>
+
   <div class="wrap">
 
     <!-- BRAND HEADER -->
-    <section class="brandHero">
+    <section class="brandHero" aria-label="G2 Solutions — brand header">
       <div class="brandHeroInner">
         <img class="brandWordmark" src="g2-wordmark.svg" alt="G2 Solutions">
         <div class="brandDescriptor">
@@ -223,13 +305,13 @@
       </p>
 
       <div class="badges" aria-label="Kategorije usluga">
-        <div class="badge">🖥️ Računala</div>
-        <div class="badge">🗄️ Poslužitelji</div>
-        <div class="badge">💾 Pohrana podataka</div>
-        <div class="badge">🌐 Mreže</div>
-        <div class="badge">🔐 Sigurnost</div>
-        <div class="badge">📡 IoT</div>
-        <div class="badge">🎓 Edukacije</div>
+        <div class="badge"><svg><use href="#i-device"></use></svg>Računala</div>
+        <div class="badge"><svg><use href="#i-server"></use></svg>Poslužitelji</div>
+        <div class="badge"><svg><use href="#i-backup"></use></svg>Sigurnosna kopija</div>
+        <div class="badge"><svg><use href="#i-network"></use></svg>Mreže</div>
+        <div class="badge"><svg><use href="#i-shield"></use></svg>Sigurnost</div>
+        <div class="badge"><svg><use href="#i-iot"></use></svg>IoT</div>
+        <div class="badge"><svg><use href="#i-cap"></use></svg>Edukacije</div>
       </div>
     </section>
 
@@ -264,7 +346,7 @@
     </section>
 
     <!-- CONTACT -->
-    <section class="section">
+    <section class="section" id="kontakt">
       <div class="card">
         <h2>Kontakt</h2>
         <form onsubmit="return openMail(event)">
@@ -288,15 +370,20 @@
 
     function openMail(e){
       e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const msg = document.getElementById('msg').value.trim();
+
       window.location.href =
         "mailto:info@g2.hr?subject=" +
         encodeURIComponent("Upit — G2 Solutions") +
         "&body=" +
         encodeURIComponent(
-          "Ime/tvrtka: " + document.getElementById('name').value + "\n" +
-          "Email: " + document.getElementById('email').value + "\n\n" +
-          document.getElementById('msg').value
+          "Ime/tvrtka: " + name + "\n" +
+          "Email: " + email + "\n\n" +
+          msg
         );
+
       return false;
     }
   </script>
