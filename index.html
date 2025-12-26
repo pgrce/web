@@ -19,10 +19,16 @@
 
   <style>
     :root{
-      --bg:#0b1220; --card:#101a33; --text:#eaf0ff; --muted:#b7c3e6;
-      --accent:#6ea8ff; --accent2:#7cf7c6; --border:rgba(255,255,255,.10);
+      --bg:#0b1220;
+      --card:#101a33;
+      --text:#eaf0ff;
+      --muted:#b7c3e6;
+      --accent:#6ea8ff;
+      --accent2:#7cf7c6;
+      --border:rgba(255,255,255,.10);
       --shadow:0 16px 50px rgba(0,0,0,.35);
-      --radius:18px; --max:980px;
+      --radius:18px;
+      --max:980px;
 
       --light:#F8FAFF;
       --darkText:#0F172A;
@@ -32,15 +38,33 @@
 
     *{box-sizing:border-box}
 
+    /* FIX: konzistentna pozadina bez "prijeloma" na dnu */
+    html, body{height:100%}
     body{
       margin:0;
+      min-height:100vh;
       font-family:"Montserrat", system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
       color:var(--text);
+      line-height:1.55;
+
+      /* Background slojevi + fixed da se ne vidi "rez" pri scrollu */
       background:
         radial-gradient(900px 500px at 10% 10%, rgba(110,168,255,.25), transparent 60%),
         radial-gradient(900px 500px at 90% 20%, rgba(124,247,198,.18), transparent 60%),
         linear-gradient(180deg, #070b14, var(--bg));
-      line-height:1.55;
+      background-attachment: fixed, fixed, fixed;
+      background-repeat:no-repeat;
+      background-size:cover;
+    }
+
+    /* dodatni "overlay" da se banding ne vidi */
+    body::before{
+      content:"";
+      position:fixed;
+      inset:0;
+      pointer-events:none;
+      background: linear-gradient(180deg, rgba(7,11,20,.25), rgba(7,11,20,.55));
+      z-index:-1;
     }
 
     a{color:inherit}
@@ -88,23 +112,29 @@
       background:rgba(16,26,51,.85);
       border-radius:var(--radius);
       box-shadow:var(--shadow);
-      padding:20px;
+      padding:26px 22px 22px; /* elegantniji osjećaj: više zraka gore */
       backdrop-filter:blur(8px);
     }
 
-    h1{margin:0 0 10px; font-size:36px; line-height:1.15}
+    h1{
+      margin:6px 0 10px; /* malo zraka odozgo */
+      font-size:36px;
+      line-height:1.15;
+    }
     @media (max-width:520px){ h1{font-size:30px} }
     .lead{margin:0 0 14px; color:var(--muted)}
 
     .badges{
-      display:flex; gap:10px; flex-wrap:wrap;
-      margin-top:14px;
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-top:18px;
     }
     .badge{
       font-size:12px;
       background:rgba(255,255,255,.06);
       border:1px solid rgba(255,255,255,.12);
-      padding:7px 10px;
+      padding:8px 12px; /* malo premium */
       border-radius:999px;
       white-space:nowrap;
     }
@@ -128,8 +158,14 @@
       background:rgba(0,0,0,.18);
       color:var(--text);
       font-size:14px;
+      outline:none;
     }
     textarea{min-height:110px; resize:vertical}
+
+    input::placeholder,
+    textarea::placeholder{
+      color: rgba(183,195,230,.65);
+    }
 
     .btn{
       display:inline-flex;
@@ -140,10 +176,15 @@
       font-weight:600;
       border:none;
       cursor:pointer;
+      transition: transform .15s ease, filter .15s ease;
     }
     .btn.primary{
       background:linear-gradient(135deg, var(--accent), var(--accent2));
       color:#071022;
+    }
+    .btn.primary:hover{
+      filter: brightness(1.05);
+      transform: translateY(-1px);
     }
 
     /* FOOTER */
@@ -167,7 +208,7 @@
         <img class="brandWordmark" src="g2-wordmark.svg" alt="G2 Solutions">
         <div class="brandDescriptor">
           <span>IT podrška</span>
-          <span class="dot"></span>
+          <span class="dot" aria-hidden="true"></span>
           <span>Financije</span>
         </div>
       </div>
@@ -181,7 +222,7 @@
         prilagođene stvarnim potrebama poslovanja.
       </p>
 
-      <div class="badges">
+      <div class="badges" aria-label="Kategorije usluga">
         <div class="badge">🖥️ Računala</div>
         <div class="badge">🗄️ Poslužitelji</div>
         <div class="badge">💾 Pohrana podataka</div>
@@ -202,6 +243,7 @@
           <li>Održavanje i optimizacija</li>
         </ul>
       </div>
+
       <div class="card">
         <h2>Mreže & sigurnost</h2>
         <ul class="list">
@@ -210,6 +252,7 @@
           <li>Sigurnosne preporuke</li>
         </ul>
       </div>
+
       <div class="card">
         <h2>Financije & edukacije</h2>
         <ul class="list">
@@ -235,13 +278,14 @@
 
     <!-- FOOTER -->
     <div class="footer">
-      © <span id="year"></span> G2 Solutions
+      © <span id="year"></span>&nbsp;G2 Solutions
     </div>
 
   </div>
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
+
     function openMail(e){
       e.preventDefault();
       window.location.href =
@@ -249,10 +293,11 @@
         encodeURIComponent("Upit — G2 Solutions") +
         "&body=" +
         encodeURIComponent(
-          "Ime/tvrtka: " + name.value + "\n" +
-          "Email: " + email.value + "\n\n" +
-          msg.value
+          "Ime/tvrtka: " + document.getElementById('name').value + "\n" +
+          "Email: " + document.getElementById('email').value + "\n\n" +
+          document.getElementById('msg').value
         );
+      return false;
     }
   </script>
 </body>
