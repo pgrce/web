@@ -3,16 +3,15 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="robots" content="noindex" />
   <title>G2 Solutions</title>
+
   <script>
     (function () {
       const saved = localStorage.getItem('lang'); // 'hr' or 'en'
       const lang = (saved || navigator.language || navigator.userLanguage || 'en').toLowerCase();
 
-      // HR ide na /hr.html
-      // EN ide na /en/ (folder varijanta)
-      const to = lang.startsWith('hr') ? '/hr.html' : '/en/';
+      // RELATIVNO (radi i na /web/ i na g2.hr)
+      const to = lang.startsWith('hr') ? 'hr.html' : 'en/';
       window.location.replace(to);
     })();
   </script>
