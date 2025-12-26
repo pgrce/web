@@ -8,20 +8,23 @@
   <meta name="description" content="G2 Solutions (g2.hr) — IT podrška za male tvrtke i obrte, uz financijsko savjetovanje i edukacije. Zagreb." />
   <meta name="theme-color" content="#0b1220" />
 
-  <!-- Open Graph -->
+  <!-- Canonical (GitHub Pages) -->
+  <link rel="canonical" href="https://pgrce.github.io/web/hr/" />
+
+  <!-- Open Graph (GitHub Pages) -->
   <meta property="og:title" content="G2 Solutions — IT podrška i financije">
   <meta property="og:description" content="IT podrška za male tvrtke i obrte + financijsko savjetovanje i edukacije.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://g2.hr/">
+  <meta property="og:url" content="https://pgrce.github.io/web/hr/">
 
-  <!-- hreflang -->
-<link rel="alternate" hreflang="hr" href="./hr.html">
-<link rel="alternate" hreflang="en" href="./en/">
-<link rel="alternate" hreflang="x-default" href="./en/">
+  <!-- hreflang (GitHub Pages) -->
+  <link rel="alternate" hreflang="hr" href="https://pgrce.github.io/web/hr/" />
+  <link rel="alternate" hreflang="en" href="https://pgrce.github.io/web/en/" />
+  <link rel="alternate" hreflang="x-default" href="https://pgrce.github.io/web/hr/" />
 
-  <!-- FAVICON -->
-<link rel="icon" href="favicon.ico" sizes="any">
-<link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <!-- FAVICON (root assets) -->
+  <link rel="icon" href="../favicon.ico" sizes="any">
+  <link rel="apple-touch-icon" href="../apple-touch-icon.png">
 
   <!-- FONTS -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -197,7 +200,14 @@
     }
     .btn.primary:hover{filter:brightness(1.05)}
 
-    .footer{margin-top:18px; display:flex; justify-content:center; font-size:12px; color:var(--muted); text-align:center}
+    .footer{
+      margin-top:18px;
+      display:flex;
+      justify-content:center;
+      font-size:12px;
+      color:var(--muted);
+      text-align:center
+    }
 
     @media (prefers-reduced-motion: reduce){
       *{transition:none !important;}
@@ -256,15 +266,15 @@
 
   <div class="wrap">
     <div class="topRow">
-      <div class="lang" aria-label="Language switch">
-<a class="active" href="./hr.html" onclick="localStorage.setItem('lang','hr')">HR</a>
-<a href="./en/" onclick="localStorage.setItem('lang','en')">EN</a>
+      <div class="lang" aria-label="Odabir jezika">
+        <a class="active" href="/web/hr/" onclick="localStorage.setItem('lang','hr')">HR</a>
+        <a href="/web/en/" onclick="localStorage.setItem('lang','en')">EN</a>
       </div>
     </div>
 
     <section class="brandHero" aria-label="G2 Solutions — brand header">
       <div class="brandHeroInner">
-        <img class="brandWordmark" src="g2-wordmark.svg" alt="G2 Solutions">
+        <img class="brandWordmark" src="../g2-wordmark.svg" alt="G2 Solutions">
         <div class="brandDescriptor">
           <span>IT podrška</span>
           <span class="dot" aria-hidden="true"></span>
@@ -303,7 +313,7 @@
       </div>
 
       <div class="card">
-        <h2>Mreže & sigurnost</h2>
+        <h2>Mreže &amp; sigurnost</h2>
         <ul class="list">
           <li>LAN / Wi-Fi</li>
           <li>Backup rješenja</li>
@@ -312,11 +322,11 @@
       </div>
 
       <div class="card">
-        <h2>Financije & edukacije</h2>
+        <h2>Financije &amp; edukacije</h2>
         <ul class="list">
           <li>Financijska pismenost</li>
           <li>Planiranje troškova</li>
-          <li>Edukacije 1-na-1</li>
+          <li>Edukacije 1 na 1</li>
         </ul>
       </div>
     </section>
@@ -324,16 +334,17 @@
     <section class="section" id="kontakt">
       <div class="card">
         <h2>Kontakt</h2>
+        <p class="lead" style="margin-top:-2px">Odgovaramo u roku od 24 sata tijekom radnih dana.</p>
         <form onsubmit="return openMail(event)">
-          <input id="name" type="text" placeholder="Ime i tvrtka" required>
-          <input id="email" type="email" placeholder="Email" required>
+          <input id="name" type="text" placeholder="Ime i tvrtka" autocomplete="name" required>
+          <input id="email" type="email" placeholder="Email" autocomplete="email" required>
           <textarea id="msg" placeholder="Poruka" required></textarea>
           <button class="btn primary" type="submit">Pošalji email</button>
         </form>
       </div>
     </section>
 
-    <div class="footer">©&nbsp;<span id="year"></span>&nbsp;G2 Solutions</div>
+    <div class="footer">©&nbsp;<span id="year"></span>&nbsp;G2 Solutions · Zagreb · info@g2.hr</div>
   </div>
 
   <script>
@@ -357,7 +368,4 @@
     }
   </script>
 </body>
-
 </html>
-
-
