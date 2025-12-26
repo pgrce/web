@@ -10,9 +10,11 @@
       const saved = localStorage.getItem('lang'); // 'hr' or 'en'
       const lang = (saved || navigator.language || navigator.userLanguage || 'en').toLowerCase();
 
-      // RELATIVNO (radi i na /web/ i na g2.hr)
-      const to = lang.startsWith('hr') ? 'hr.html' : 'en/';
-      window.location.replace(to);
+      // GitHub Pages project site = /web/ -> treba zadržati taj base path
+      const base = location.pathname.replace(/\/[^\/]*$/, '/'); // folder gdje je index.html
+      const target = lang.startsWith('hr') ? 'hr.html' : 'en/';
+
+      location.replace(base + target);
     })();
   </script>
 </head>
