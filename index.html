@@ -95,45 +95,51 @@
     }
 
     /* WHITE BRAND-ONLY HEADER */
-    .brandHero{
-      background:var(--light);
-      color:var(--darkText);
-      border:1px solid var(--lightBorder);
-      border-radius:var(--radius);
-      box-shadow: 0 16px 50px rgba(0,0,0,.22);
-      padding:26px 18px 22px;
-      margin:0 0 14px;
-    }
-    .brandHeroInner{
-      display:flex;
-      flex-direction:column;
-      align-items:center;
-      text-align:center;
-      gap:10px;
-    }
-    .brandWordmark{
-      width:min(760px, 100%);
-      height:auto;
-      display:block;
-      margin: 0 auto;
-    }
-    .brandDescriptor{
-      font-size:16px;
-      color:var(--darkMuted);
-      letter-spacing:0.02em;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      gap:10px;
-      flex-wrap:wrap;
-    }
-    .brandDescriptor .dot{
-      width:5px; height:5px;
-      border-radius:999px;
-      background:var(--blue);
-      display:inline-block;
-      transform: translateY(-1px);
-    }
+.brandHero{
+  background:#F8FAFF;
+  color:#0F172A;
+  border:1px solid rgba(15,23,42,.10);
+  border-radius:18px;
+  box-shadow: 0 16px 50px rgba(0,0,0,.22);
+  padding: 22px 18px 16px;
+  margin: 0 0 14px;
+}
+
+.brandHeroInner{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  text-align:center;
+  gap:10px;
+}
+
+.brandWordmark{
+  width: min(560px, 92%);
+  max-height: 110px;
+  height:auto;
+  display:block;
+  margin:0 auto;
+}
+
+.brandDescriptor{
+  margin-top:2px;
+  font-size:14px;
+  color:#475569;
+  letter-spacing:0.06em;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  flex-wrap:wrap;
+}
+
+.brandDescriptor .dot{
+  width:5px; height:5px;
+  border-radius:999px;
+  background:#1D4ED8;
+  display:inline-block;
+  transform: translateY(-1px);
+}
     @media (max-width:520px){
       .brandHero{padding:20px 14px}
       .brandDescriptor{font-size:14px}
@@ -318,3 +324,4 @@
         <p class="pill small">📍 Karlovačka cesta 32C, 10020 Zagreb</p>
         <div class="hr"></div>
         <p class="muted small">Po dogovoru: remote podrška i dolazak na lokaciju.<
+
