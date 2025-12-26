@@ -8,6 +8,12 @@
   <meta name="description" content="G2 Solutions (g2.hr) — IT podrška za male tvrtke i obrte, uz financijsko savjetovanje i edukacije. Zagreb." />
   <meta name="theme-color" content="#0b1220" />
 
+  <!-- Open Graph (share preview) -->
+  <meta property="og:title" content="G2 Solutions — IT podrška i financije">
+  <meta property="og:description" content="IT podrška za male tvrtke i obrte + financijsko savjetovanje i edukacije.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://g2.hr/">
+
   <!-- FAVICON -->
   <link rel="icon" type="image/png" href="favicon.png">
   <link rel="apple-touch-icon" href="favicon.png">
@@ -108,7 +114,7 @@
       background:rgba(16,26,51,.85);
       border-radius:var(--radius);
       box-shadow:var(--shadow);
-      padding:26px 22px 22px; /* više zraka gore */
+      padding:26px 22px 22px;
       backdrop-filter:blur(8px);
     }
 
@@ -118,7 +124,17 @@
       line-height:1.15;
     }
     @media (max-width:520px){ h1{font-size:30px} }
-    .lead{margin:0 0 14px; color:var(--muted)}
+    .lead{margin:0 0 10px; color:var(--muted)}
+
+    /* Inline CTA */
+    .inlineCta{
+      display:inline-block;
+      margin-top:6px;
+      color:rgba(234,240,255,.92);
+      text-decoration:none;
+      border-bottom:1px solid rgba(110,168,255,.45);
+    }
+    .inlineCta:hover{opacity:.9}
 
     /* BADGES */
     .badges{
@@ -138,7 +154,6 @@
       border-radius:999px;
       white-space:nowrap;
 
-      /* micro-animation: samo opacity */
       opacity:.92;
       transition: opacity .16s ease;
     }
@@ -175,6 +190,12 @@
     textarea{min-height:110px; resize:vertical}
     input::placeholder, textarea::placeholder{ color: rgba(183,195,230,.65); }
 
+    /* Focus state (premium) */
+    input:focus, textarea:focus{
+      border-color: rgba(110,168,255,.55);
+      box-shadow: 0 0 0 4px rgba(110,168,255,.12);
+    }
+
     .btn{
       display:inline-flex;
       justify-content:center;
@@ -184,7 +205,7 @@
       font-weight:600;
       border:none;
       cursor:pointer;
-      transition: filter .15s ease; /* bez pomicanja */
+      transition: filter .15s ease;
     }
     .btn.primary{
       background:linear-gradient(135deg, var(--accent), var(--accent2));
@@ -200,6 +221,11 @@
       font-size:12px;
       color:var(--muted);
       text-align:center;
+    }
+
+    /* Reduced motion */
+    @media (prefers-reduced-motion: reduce){
+      *{transition:none !important;}
     }
   </style>
 </head>
@@ -260,7 +286,7 @@
             fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
     </symbol>
 
-    <!-- IoT (circuit/nodes: central + 4 nodes) -->
+    <!-- IoT -->
     <symbol id="i-iot" viewBox="0 0 16 16">
       <circle cx="8" cy="8" r="2" fill="none" stroke="currentColor" stroke-width="1.2"/>
       <circle cx="3" cy="3" r="1" fill="currentColor"/>
@@ -303,6 +329,7 @@
         G2 Solutions pruža praktičnu IT podršku za male tvrtke i obrte, te financijsko savjetovanje i edukacije
         prilagođene stvarnim potrebama poslovanja.
       </p>
+      <a class="inlineCta" href="#kontakt">Pošaljite upit →</a>
 
       <div class="badges" aria-label="Kategorije usluga">
         <div class="badge"><svg><use href="#i-device"></use></svg>Računala</div>
@@ -316,7 +343,7 @@
     </section>
 
     <!-- SERVICES -->
-    <section class="section grid">
+    <section class="section grid" id="usluge">
       <div class="card">
         <h2>IT podrška</h2>
         <ul class="list">
@@ -374,16 +401,14 @@
       const email = document.getElementById('email').value.trim();
       const msg = document.getElementById('msg').value.trim();
 
-      window.location.href =
-        "mailto:info@g2.hr?subject=" +
-        encodeURIComponent("Upit — G2 Solutions") +
-        "&body=" +
-        encodeURIComponent(
-          "Ime/tvrtka: " + name + "\n" +
-          "Email: " + email + "\n\n" +
-          msg
-        );
+      const subject = encodeURIComponent("Upit — G2 Solutions (" + name + ")");
+      const body = encodeURIComponent(
+        "Ime/tvrtka: " + name + "\n" +
+        "Email: " + email + "\n\n" +
+        msg
+      );
 
+      window.location.href = "mailto:info@g2.hr?subject=" + subject + "&body=" + body;
       return false;
     }
   </script>
