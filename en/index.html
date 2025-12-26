@@ -1,1 +1,352 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
+  <title>G2 Solutions — IT Support & Finance</title>
+  <meta name="description" content="G2 Solutions (g2.hr) — practical IT support for small businesses, plus financial consulting and training. Zagreb." />
+  <meta name="theme-color" content="#0b1220" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="G2 Solutions — IT Support & Finance">
+  <meta property="og:description" content="Practical IT support + financial consulting and training.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://g2.hr/en/">
+
+  <!-- hreflang -->
+  <link rel="alternate" hreflang="hr" href="https://g2.hr/hr.html">
+  <link rel="alternate" hreflang="en" href="https://g2.hr/en/">
+  <link rel="alternate" hreflang="x-default" href="https://g2.hr/en/">
+
+  <!-- FAVICON -->
+  <link rel="icon" href="../favicon.ico" sizes="any">
+  <link rel="apple-touch-icon" href="../favicon-180.png">
+
+  <!-- FONTS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#0b1220; --text:#eaf0ff; --muted:#b7c3e6;
+      --accent:#6ea8ff; --accent2:#7cf7c6;
+      --shadow:0 16px 50px rgba(0,0,0,.35);
+      --radius:18px; --max:980px;
+      --light:#F8FAFF; --darkText:#0F172A; --darkMuted:#475569; --blue:#1D4ED8;
+    }
+
+    *{box-sizing:border-box}
+    html, body{height:100%}
+
+    body{
+      margin:0;
+      min-height:100vh;
+      font-family:"Montserrat", system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      color:var(--text);
+      line-height:1.55;
+      background:
+        radial-gradient(900px 500px at 10% 10%, rgba(110,168,255,.25), transparent 60%),
+        radial-gradient(900px 500px at 90% 20%, rgba(124,247,198,.18), transparent 60%),
+        linear-gradient(180deg, #070b14, var(--bg));
+      background-attachment: fixed, fixed, fixed;
+      background-repeat:no-repeat;
+      background-size:cover;
+    }
+    body::before{
+      content:"";
+      position:fixed;
+      inset:0;
+      pointer-events:none;
+      background: linear-gradient(180deg, rgba(7,11,20,.25), rgba(7,11,20,.55));
+      z-index:-1;
+    }
+
+    a{color:inherit}
+    .wrap{max-width:var(--max); margin:0 auto; padding:28px 18px 32px}
+
+    .topRow{display:flex; justify-content:flex-end; margin-bottom:10px}
+    .lang{
+      display:inline-flex; gap:6px; align-items:center;
+      font-size:12px; color:rgba(234,240,255,.80);
+    }
+    .lang a{
+      text-decoration:none;
+      padding:6px 10px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.12);
+      background:rgba(255,255,255,.06);
+      opacity:.9;
+      transition:opacity .16s ease;
+    }
+    .lang a:hover{opacity:1}
+    .lang .active{
+      border-color: rgba(110,168,255,.55);
+      background: rgba(110,168,255,.14);
+      opacity:1;
+    }
+
+    .brandHero{
+      background:var(--light);
+      color:var(--darkText);
+      border-radius:18px;
+      box-shadow:0 16px 50px rgba(0,0,0,.22);
+      padding:20px 18px 14px;
+      margin-bottom:14px;
+    }
+    .brandHeroInner{
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      text-align:center;
+      gap:10px;
+    }
+    .brandWordmark{
+      width:min(560px, 92%);
+      max-height:110px;
+      height:auto;
+      display:block;
+    }
+    .brandDescriptor{
+      font-size:14px;
+      color:var(--darkMuted);
+      letter-spacing:0.06em;
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+    .brandDescriptor .dot{
+      width:5px; height:5px;
+      border-radius:999px;
+      background:var(--blue);
+      transform:translateY(-1px);
+    }
+
+    .card{
+      background:rgba(16,26,51,.85);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:26px 22px 22px;
+      backdrop-filter:blur(8px);
+    }
+
+    h1{margin:6px 0 10px; font-size:36px; line-height:1.15}
+    @media (max-width:520px){ h1{font-size:30px} }
+    .lead{margin:0 0 10px; color:var(--muted)}
+
+    .inlineCta{
+      display:inline-block;
+      margin-top:6px;
+      color:rgba(234,240,255,.92);
+      text-decoration:none;
+      border-bottom:1px solid rgba(110,168,255,.45);
+    }
+    .inlineCta:hover{opacity:.9}
+
+    .badges{display:flex; gap:10px; flex-wrap:wrap; margin-top:18px}
+    .badge{
+      display:inline-flex; align-items:center; gap:8px; font-size:12px;
+      background:rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.12);
+      padding:8px 12px; border-radius:999px; white-space:nowrap;
+      opacity:.92; transition:opacity .16s ease;
+    }
+    .badge:hover{opacity:1}
+    .badge svg{width:16px; height:16px; flex:0 0 16px; color:rgba(234,240,255,.85)}
+
+    .section{margin-top:14px}
+    .grid{display:grid; grid-template-columns:repeat(3,1fr); gap:14px}
+    @media (max-width:900px){ .grid{grid-template-columns:1fr} }
+
+    h2{margin:0 0 10px; font-size:20px}
+    .list{margin:10px 0 0; padding-left:18px; color:var(--muted)}
+    .list li{margin:7px 0}
+
+    form{display:grid; gap:10px}
+    input, textarea{
+      width:100%; padding:11px 12px; border-radius:12px;
+      border:1px solid rgba(255,255,255,.12);
+      background:rgba(0,0,0,.18);
+      color:var(--text); font-size:14px; outline:none;
+    }
+    textarea{min-height:110px; resize:vertical}
+    input::placeholder, textarea::placeholder{color:rgba(183,195,230,.65)}
+    input:focus, textarea:focus{
+      border-color: rgba(110,168,255,.55);
+      box-shadow: 0 0 0 4px rgba(110,168,255,.12);
+    }
+
+    .btn{
+      display:inline-flex; justify-content:center; align-items:center;
+      padding:12px 14px; border-radius:12px; font-weight:600;
+      border:none; cursor:pointer;
+      transition:filter .15s ease;
+    }
+    .btn.primary{
+      background:linear-gradient(135deg, var(--accent), var(--accent2));
+      color:#071022;
+    }
+    .btn.primary:hover{filter:brightness(1.05)}
+
+    .footer{margin-top:18px; display:flex; justify-content:center; font-size:12px; color:var(--muted); text-align:center}
+
+    @media (prefers-reduced-motion: reduce){
+      *{transition:none !important;}
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- SVG SPRITE -->
+  <svg xmlns="http://www.w3.org/2000/svg" style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true" focusable="false">
+    <symbol id="i-device" viewBox="0 0 16 16">
+      <rect x="2" y="3" width="12" height="8" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.2"/>
+      <path d="M6 13h4" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+      <path d="M4 13h8" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" opacity=".6"/>
+    </symbol>
+    <symbol id="i-server" viewBox="0 0 16 16">
+      <rect x="3" y="2.5" width="10" height="4" rx="1.2" fill="none" stroke="currentColor" stroke-width="1.2"/>
+      <rect x="3" y="9.5" width="10" height="4" rx="1.2" fill="none" stroke="currentColor" stroke-width="1.2"/>
+      <circle cx="5.2" cy="4.5" r=".6" fill="currentColor"/>
+      <circle cx="5.2" cy="11.5" r=".6" fill="currentColor"/>
+      <path d="M7 4.5h5M7 11.5h5" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" opacity=".75"/>
+    </symbol>
+    <symbol id="i-backup" viewBox="0 0 16 16">
+      <path d="M8 3a5 5 0 1 0 5 5" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+      <path d="M11 3h2v2" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M13 3l-2.2 2.2" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+    </symbol>
+    <symbol id="i-network" viewBox="0 0 16 16">
+      <circle cx="3" cy="8" r="1.2" fill="none" stroke="currentColor" stroke-width="1.2"/>
+      <circle cx="13" cy="4" r="1.2" fill="none" stroke="currentColor" stroke-width="1.2"/>
+      <circle cx="13" cy="12" r="1.2" fill="none" stroke="currentColor" stroke-width="1.2"/>
+      <path d="M4.2 8L11.9 4.6M4.2 8l7.7 3.4" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+    </symbol>
+    <symbol id="i-shield" viewBox="0 0 16 16">
+      <path d="M8 2.2l5 2v4.3c0 3.3-2.2 5.5-5 6.6-2.8-1.1-5-3.3-5-6.6V4.2l5-2Z"
+            fill="none" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/>
+      <path d="M6.2 8.2l1.2 1.3 2.6-2.7" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+    <symbol id="i-iot" viewBox="0 0 16 16">
+      <circle cx="8" cy="8" r="2" fill="none" stroke="currentColor" stroke-width="1.2"/>
+      <circle cx="3" cy="3" r="1" fill="currentColor"/>
+      <circle cx="13" cy="3" r="1" fill="currentColor"/>
+      <circle cx="13" cy="13" r="1" fill="currentColor"/>
+      <circle cx="3" cy="13" r="1" fill="currentColor"/>
+      <path d="M4.2 4.2L6.6 6.6M11.8 4.2L9.4 6.6M11.8 11.8L9.4 9.4M4.2 11.8L6.6 9.4"
+            fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+    </symbol>
+    <symbol id="i-cap" viewBox="0 0 16 16">
+      <path d="M2 6l6-3 6 3-6 3-6-3Z" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/>
+      <path d="M4.2 7.1V10c0 .9 1.7 1.8 3.8 1.8S11.8 10.9 11.8 10V7.1"
+            fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+      <path d="M14 6v4" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" opacity=".75"/>
+    </symbol>
+  </svg>
+
+  <div class="wrap">
+    <div class="topRow">
+      <div class="lang" aria-label="Language switch">
+        <a href="../hr.html" onclick="localStorage.setItem('lang','hr')">HR</a>
+        <a class="active" href="/en/" onclick="localStorage.setItem('lang','en')">EN</a>
+      </div>
+    </div>
+
+    <section class="brandHero" aria-label="G2 Solutions — brand header">
+      <div class="brandHeroInner">
+        <img class="brandWordmark" src="../g2-wordmark.svg" alt="G2 Solutions">
+        <div class="brandDescriptor">
+          <span>IT support</span>
+          <span class="dot" aria-hidden="true"></span>
+          <span>Finance</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h1>Simple support.<br>Clear solutions.</h1>
+      <p class="lead">
+        G2 Solutions provides practical IT support for small businesses, along with financial consulting and training
+        tailored to real operational needs.
+      </p>
+      <a class="inlineCta" href="#contact">Send an enquiry →</a>
+
+      <div class="badges" aria-label="Service categories">
+        <div class="badge"><svg><use href="#i-device"></use></svg>Computers</div>
+        <div class="badge"><svg><use href="#i-server"></use></svg>Servers</div>
+        <div class="badge"><svg><use href="#i-backup"></use></svg>Backup</div>
+        <div class="badge"><svg><use href="#i-network"></use></svg>Networking</div>
+        <div class="badge"><svg><use href="#i-shield"></use></svg>Security</div>
+        <div class="badge"><svg><use href="#i-iot"></use></svg>IoT</div>
+        <div class="badge"><svg><use href="#i-cap"></use></svg>Training</div>
+      </div>
+    </section>
+
+    <section class="section grid" id="services">
+      <div class="card">
+        <h2>IT support</h2>
+        <ul class="list">
+          <li>Installations & upgrades</li>
+          <li>User support</li>
+          <li>Maintenance & optimisation</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h2>Networking & security</h2>
+        <ul class="list">
+          <li>LAN / Wi-Fi</li>
+          <li>Backup solutions</li>
+          <li>Security recommendations</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h2>Finance & training</h2>
+        <ul class="list">
+          <li>Financial literacy</li>
+          <li>Cost planning</li>
+          <li>1-on-1 training</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="card">
+        <h2>Contact</h2>
+        <form onsubmit="return openMail(event)">
+          <input id="name" type="text" placeholder="Name and company" required>
+          <input id="email" type="email" placeholder="Email" required>
+          <textarea id="msg" placeholder="Message" required></textarea>
+          <button class="btn primary" type="submit">Send email</button>
+        </form>
+      </div>
+    </section>
+
+    <div class="footer">© <span id="year"></span> G2 Solutions</div>
+  </div>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    function openMail(e){
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const msg = document.getElementById('msg').value.trim();
+
+      const subject = encodeURIComponent("Enquiry — G2 Solutions (" + name + ")");
+      const body = encodeURIComponent(
+        "Name/company: " + name + "\n" +
+        "Email: " + email + "\n\n" +
+        msg
+      );
+
+      window.location.href = "mailto:info@g2.hr?subject=" + subject + "&body=" + body;
+      return false;
+    }
+  </script>
+</body>
+</html>
