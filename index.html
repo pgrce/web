@@ -24,10 +24,9 @@
       --shadow:0 16px 50px rgba(0,0,0,.35);
       --radius:18px; --max:980px;
 
-      --light:#ffffff;
+      --light:#F8FAFF;
       --darkText:#0F172A;
       --darkMuted:#475569;
-      --lightBorder:rgba(15,23,42,.12);
       --blue:#1D4ED8;
     }
 
@@ -45,17 +44,16 @@
     }
 
     a{color:inherit}
-    .wrap{max-width:var(--max); margin:0 auto; padding:28px 18px 60px}
+    .wrap{max-width:var(--max); margin:0 auto; padding:28px 18px 32px}
 
-    /* BRAND HEADER */
+    /* WHITE BRAND HEADER */
     .brandHero{
-      background:#F8FAFF;
-      color:#0F172A;
-      border:1px solid rgba(15,23,42,.10);
+      background:var(--light);
+      color:var(--darkText);
       border-radius:18px;
       box-shadow:0 16px 50px rgba(0,0,0,.22);
       padding:20px 18px 14px;
-      margin:0 0 14px;
+      margin-bottom:14px;
     }
     .brandHeroInner{
       display:flex;
@@ -69,31 +67,28 @@
       max-height:110px;
       height:auto;
       display:block;
-      margin:0 auto;
     }
     .brandDescriptor{
       font-size:14px;
-      color:#475569;
+      color:var(--darkMuted);
       letter-spacing:0.06em;
       display:flex;
       align-items:center;
-      justify-content:center;
       gap:10px;
     }
     .brandDescriptor .dot{
       width:5px; height:5px;
       border-radius:999px;
-      background:#1D4ED8;
+      background:var(--blue);
       transform:translateY(-1px);
     }
 
-    /* DARK CONTENT */
+    /* DARK CARDS */
     .card{
       background:rgba(16,26,51,.85);
-      border:1px solid var(--border);
       border-radius:var(--radius);
       box-shadow:var(--shadow);
-      padding:22px;
+      padding:20px;
       backdrop-filter:blur(8px);
     }
 
@@ -103,13 +98,12 @@
 
     .badges{
       display:flex; gap:10px; flex-wrap:wrap;
-      margin:14px 0 0;
+      margin-top:14px;
     }
     .badge{
       font-size:12px;
-      color:var(--text);
       background:rgba(255,255,255,.06);
-      border:1px solid var(--border);
+      border:1px solid rgba(255,255,255,.12);
       padding:7px 10px;
       border-radius:999px;
       white-space:nowrap;
@@ -121,27 +115,44 @@
 
     h2{margin:0 0 10px; font-size:20px}
     .muted{color:var(--muted)}
-    .small{font-size:13px}
     .list{margin:10px 0 0; padding-left:18px; color:var(--muted)}
     .list li{margin:7px 0}
 
-    form{display:grid; gap:10px; margin-top:10px}
+    /* FORM */
+    form{display:grid; gap:10px}
     input, textarea{
       width:100%;
       padding:11px 12px;
       border-radius:12px;
-      border:1px solid var(--border);
-      background:rgba(0,0,0,.12);
+      border:1px solid rgba(255,255,255,.12);
+      background:rgba(0,0,0,.18);
       color:var(--text);
       font-size:14px;
     }
+    textarea{min-height:110px; resize:vertical}
 
+    .btn{
+      display:inline-flex;
+      justify-content:center;
+      align-items:center;
+      padding:12px 14px;
+      border-radius:12px;
+      font-weight:600;
+      border:none;
+      cursor:pointer;
+    }
+    .btn.primary{
+      background:linear-gradient(135deg, var(--accent), var(--accent2));
+      color:#071022;
+    }
+
+    /* FOOTER */
     .footer{
       margin-top:18px;
       display:flex;
       justify-content:center;
-      color:var(--muted);
       font-size:12px;
+      color:var(--muted);
       text-align:center;
     }
   </style>
@@ -182,7 +193,7 @@
     </section>
 
     <!-- SERVICES -->
-    <section id="usluge" class="section grid">
+    <section class="section grid">
       <div class="card">
         <h2>IT podrška</h2>
         <ul class="list">
@@ -210,14 +221,14 @@
     </section>
 
     <!-- CONTACT -->
-    <section id="kontakt" class="section">
+    <section class="section">
       <div class="card">
         <h2>Kontakt</h2>
         <form onsubmit="return openMail(event)">
           <input id="name" type="text" placeholder="Ime i tvrtka" required>
           <input id="email" type="email" placeholder="Email" required>
           <textarea id="msg" placeholder="Poruka" required></textarea>
-          <button type="submit">Pošalji email</button>
+          <button class="btn primary" type="submit">Pošalji email</button>
         </form>
       </div>
     </section>
@@ -233,14 +244,15 @@
     document.getElementById('year').textContent = new Date().getFullYear();
     function openMail(e){
       e.preventDefault();
-      const name = name.value;
-      const email = email.value;
-      const msg = msg.value;
       window.location.href =
         "mailto:info@g2.hr?subject=" +
-        encodeURIComponent("Upit — " + name) +
+        encodeURIComponent("Upit — G2 Solutions") +
         "&body=" +
-        encodeURIComponent(msg + "\n\n" + email);
+        encodeURIComponent(
+          "Ime/tvrtka: " + name.value + "\n" +
+          "Email: " + email.value + "\n\n" +
+          msg.value
+        );
     }
   </script>
 </body>
