@@ -20,10 +20,10 @@
     <!-- G -->
     <text class="g2" x="0" y="126" fill="#0F172A">G</text>
 
-    <!-- 2 -->
-    <text class="g2" x="96" y="126" fill="#1D4ED8">2</text>
+    <!-- 2 (povećan razmak od G) -->
+    <text class="g2" x="112" y="126" fill="#1D4ED8">2</text>
 
-    <!-- SOLUTIONS (još mrvicu gore) -->
-    <text class="sol" x="206" y="106" fill="#0F172A">SOLUTIONS</text>
+    <!-- SOLUTIONS (usklađeno s novom pozicijom 2) -->
+    <text class="sol" x="230" y="106" fill="#0F172A">SOLUTIONS</text>
   </g>
 </svg>
