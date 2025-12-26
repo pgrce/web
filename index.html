@@ -4,8 +4,8 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>G2 Solutions — IT podrška, financijsko savjetovanje i edukacije</title>
-  <meta name="description" content="G2 Solutions (g2.hr) — IT podrška za male tvrtke i obrte, plus financijsko savjetovanje i edukacije. Zagreb." />
+  <title>G2 Solutions — IT podrška i financije</title>
+  <meta name="description" content="G2 Solutions (g2.hr) — IT podrška za male tvrtke i obrte, uz financijsko savjetovanje i edukacije. Zagreb." />
   <meta name="theme-color" content="#0b1220" />
 
   <!-- FAVICON -->
@@ -19,12 +19,14 @@
       --shadow: 0 16px 50px rgba(0,0,0,.35);
       --radius:18px; --max:980px;
 
-      /* light hero */
+      /* light brand header */
       --light:#ffffff;
       --darkText:#0F172A;
       --darkMuted:#475569;
       --lightBorder:rgba(15,23,42,.12);
+      --blue:#1D4ED8;
     }
+
     *{box-sizing:border-box}
     body{
       margin:0;
@@ -92,14 +94,14 @@
       .logoWrap{width:48px; height:48px; border-radius:14px}
     }
 
-    /* WHITE BOXED BRAND HEADER (only logo + descriptor) */
+    /* WHITE BRAND-ONLY HEADER */
     .brandHero{
       background:var(--light);
       color:var(--darkText);
       border:1px solid var(--lightBorder);
       border-radius:var(--radius);
       box-shadow: 0 16px 50px rgba(0,0,0,.22);
-      padding:28px 18px;
+      padding:26px 18px 22px;
       margin:0 0 14px;
     }
     .brandHeroInner{
@@ -110,9 +112,10 @@
       gap:10px;
     }
     .brandWordmark{
-      width:min(720px, 100%);
+      width:min(760px, 100%);
       height:auto;
       display:block;
+      margin: 0 auto;
     }
     .brandDescriptor{
       font-size:16px;
@@ -127,13 +130,14 @@
     .brandDescriptor .dot{
       width:5px; height:5px;
       border-radius:999px;
-      background:rgba(29,78,216,.85);
+      background:var(--blue);
       display:inline-block;
       transform: translateY(-1px);
     }
     @media (max-width:520px){
-      .brandHero{padding:22px 14px}
+      .brandHero{padding:20px 14px}
       .brandDescriptor{font-size:14px}
+      .brandWordmark{width:min(520px, 100%)}
     }
 
     /* DARK CARDS */
@@ -145,7 +149,6 @@
       padding:22px;
       backdrop-filter: blur(8px);
     }
-
     h1{margin:0 0 10px; font-size:36px; line-height:1.15}
     @media (max-width:520px){ h1{font-size:30px} }
     .lead{margin:0 0 14px; color:var(--muted)}
@@ -170,17 +173,15 @@
       background:rgba(255,255,255,.06);
       color:var(--text); text-decoration:none; font-weight:650; font-size:14px;
     }
-    .btn.primary{
-      background:linear-gradient(135deg, rgba(110,168,255,.95), rgba(124,247,198,.80));
-      border:none;
-      color:#071022;
-    }
+    .btn.primary{background:linear-gradient(135deg, rgba(110,168,255,.95), rgba(124,247,198,.80)); border:none; color:#071022}
 
     .section{margin-top:14px}
     .grid{display:grid; grid-template-columns:repeat(3,1fr); gap:14px}
     @media (max-width:900px){ .grid{grid-template-columns:1fr} }
+
     h2{margin:0 0 10px; font-size:20px}
     .muted{color:var(--muted)}
+    .small{font-size:13px}
     .list{margin:10px 0 0; padding-left:18px; color:var(--muted)}
     .list li{margin:7px 0}
     .hr{height:1px; background:var(--border); margin:16px 0}
@@ -200,13 +201,13 @@
       color:var(--muted); font-size:12px;
     }
     .pill{padding:6px 10px; border:1px solid var(--border); border-radius:999px; background:rgba(255,255,255,.04)}
-    .small{font-size:13px}
   </style>
 </head>
 
 <body>
   <div class="wrap">
 
+    <!-- Top bar -->
     <header>
       <a class="brand" href="#top" aria-label="G2 Solutions">
         <div class="logoWrap">
@@ -223,13 +224,11 @@
       </nav>
     </header>
 
-    <!-- White brand-only header -->
+    <!-- White brand-only header (SVG, no blur, no margins baked in) -->
     <section id="top" class="brandHero" aria-label="G2 Solutions — brand header">
       <div class="brandHeroInner">
-        <!-- Replace filename if needed -->
-        <img class="brandWordmark" src="Header.jpg" alt="G2 Solutions" />
-
-        <div class="brandDescriptor" aria-label="Opis usluga">
+        <img class="brandWordmark" src="g2-wordmark.svg" alt="G2 Solutions" />
+        <div class="brandDescriptor">
           <span>IT podrška</span>
           <span class="dot" aria-hidden="true"></span>
           <span>Financije</span>
@@ -237,7 +236,7 @@
       </div>
     </section>
 
-    <!-- Dark hero/content starts here -->
+    <!-- Dark hero/content -->
     <section class="card">
       <h1>Jednostavna podrška.<br/>Jasna rješenja.</h1>
       <p class="lead">
@@ -318,37 +317,4 @@
         <p class="pill small">🌐 g2.hr</p>
         <p class="pill small">📍 Karlovačka cesta 32C, 10020 Zagreb</p>
         <div class="hr"></div>
-        <p class="muted small">Po dogovoru: remote podrška i dolazak na lokaciju.</p>
-      </div>
-    </section>
-
-    <div class="footer">
-      <span>© <span id="year"></span> G2 Solutions</span>
-      <span class="pill">Karlovačka cesta 32C, 10020 Zagreb</span>
-      <span class="pill">Kontakt: info@g2.hr</span>
-    </div>
-  </div>
-
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    function openMail(e){
-      e.preventDefault();
-      const name = document.getElementById('name').value.trim();
-      const email = document.getElementById('email').value.trim();
-      const msg = document.getElementById('msg').value.trim();
-
-      const to = "info@g2.hr";
-      const subject = encodeURIComponent("Upit — G2 Solutions (" + name + ")");
-      const body = encodeURIComponent(
-        "Ime/tvrtka: " + name + "\n" +
-        "Email: " + email + "\n\n" +
-        "Poruka:\n" + msg + "\n"
-      );
-
-      window.location.href = "mailto:" + to + "?subject=" + subject + "&body=" + body;
-      return false;
-    }
-  </script>
-</body>
-</html>
+        <p class="muted small">Po dogovoru: remote podrška i dolazak na lokaciju.<
