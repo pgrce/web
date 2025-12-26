@@ -92,106 +92,51 @@
       .logoWrap{width:48px; height:48px; border-radius:14px}
     }
 
-    /* WHITE BOXED HERO */
-    .heroBox{
+    /* WHITE BOXED BRAND HEADER (only logo + descriptor) */
+    .brandHero{
       background:var(--light);
       color:var(--darkText);
       border:1px solid var(--lightBorder);
       border-radius:var(--radius);
       box-shadow: 0 16px 50px rgba(0,0,0,.22);
-      padding:34px 22px 26px;
+      padding:28px 18px;
       margin:0 0 14px;
     }
-
-    .heroTop{
+    .brandHeroInner{
       display:flex;
-      justify-content:center;
-      align-items:center;
-      text-align:center;
       flex-direction:column;
-      gap:16px;
-      padding-bottom:18px;
-      border-bottom:1px solid rgba(15,23,42,.08);
+      align-items:center;
+      text-align:center;
+      gap:10px;
     }
-
-    /* uses your Header.jpg as big wordmark */
-.heroWordmark{
-  max-height: 220px;
-  object-fit: contain;
-}
-
-    .heroTitle{
-      margin:0;
-      font-size:44px;
-      line-height:1.12;
-      letter-spacing:-0.02em;
+    .brandWordmark{
+      width:min(720px, 100%);
+      height:auto;
+      display:block;
     }
-
-    .heroLead{
-      margin:0;
-      color:var(--darkMuted);
+    .brandDescriptor{
       font-size:16px;
-      max-width:760px;
-    }
-
-    .badges{
+      color:var(--darkMuted);
+      letter-spacing:0.02em;
       display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-      margin:18px 0 16px;
-      justify-content:center;
-    }
-    .badge{
-      font-size:12px;
-      color:var(--darkText);
-      background:rgba(15,23,42,.04);
-      border:1px solid rgba(15,23,42,.10);
-      padding:7px 10px;
-      border-radius:999px;
-      white-space:nowrap;
-    }
-
-    .ctaRow{
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-      margin-top:10px;
-      justify-content:center;
-    }
-    .btn{
-      display:inline-flex;
       align-items:center;
       justify-content:center;
       gap:10px;
-      padding:11px 14px;
-      border-radius:12px;
-      border:1px solid rgba(15,23,42,.14);
-      background:rgba(15,23,42,.02);
-      color:var(--darkText);
-      text-decoration:none;
-      font-weight:650;
-      font-size:14px;
+      flex-wrap:wrap;
     }
-    .btn.primary{
-      background:linear-gradient(135deg, rgba(29,78,216,.95), rgba(110,168,255,.85));
-      border:none;
-      color:#ffffff;
+    .brandDescriptor .dot{
+      width:5px; height:5px;
+      border-radius:999px;
+      background:rgba(29,78,216,.85);
+      display:inline-block;
+      transform: translateY(-1px);
     }
-
-    .noteLight{
-      font-size:12px;
-      color:rgba(71,85,105,.95);
-      margin-top:12px;
-      text-align:center;
-    }
-
     @media (max-width:520px){
-      .heroBox{padding:26px 16px 20px}
-      .heroTitle{font-size:34px}
-      .heroLead{font-size:15px}
+      .brandHero{padding:22px 14px}
+      .brandDescriptor{font-size:14px}
     }
 
-    /* DARK CARDS BELOW */
+    /* DARK CARDS */
     .card{
       background: rgba(16,26,51,.85);
       border:1px solid var(--border);
@@ -201,61 +146,71 @@
       backdrop-filter: blur(8px);
     }
 
+    h1{margin:0 0 10px; font-size:36px; line-height:1.15}
+    @media (max-width:520px){ h1{font-size:30px} }
+    .lead{margin:0 0 14px; color:var(--muted)}
+
+    .badges{
+      display:flex; gap:10px; flex-wrap:wrap;
+      margin:14px 0 16px;
+    }
+    .badge{
+      font-size:12px; color:var(--text);
+      background:rgba(255,255,255,.06);
+      border:1px solid var(--border);
+      padding:7px 10px; border-radius:999px;
+      white-space:nowrap;
+    }
+
+    .ctaRow{display:flex; gap:10px; flex-wrap:wrap; margin-top:12px}
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center; gap:10px;
+      padding:11px 14px; border-radius:12px;
+      border:1px solid var(--border);
+      background:rgba(255,255,255,.06);
+      color:var(--text); text-decoration:none; font-weight:650; font-size:14px;
+    }
+    .btn.primary{
+      background:linear-gradient(135deg, rgba(110,168,255,.95), rgba(124,247,198,.80));
+      border:none;
+      color:#071022;
+    }
+
     .section{margin-top:14px}
     .grid{display:grid; grid-template-columns:repeat(3,1fr); gap:14px}
     @media (max-width:900px){ .grid{grid-template-columns:1fr} }
-
     h2{margin:0 0 10px; font-size:20px}
     .muted{color:var(--muted)}
-    .small{font-size:13px}
-
     .list{margin:10px 0 0; padding-left:18px; color:var(--muted)}
     .list li{margin:7px 0}
-
     .hr{height:1px; background:var(--border); margin:16px 0}
 
     form{display:grid; gap:10px; margin-top:10px}
     input, textarea{
-      width:100%;
-      padding:11px 12px;
-      border-radius:12px;
-      border:1px solid var(--border);
-      background:rgba(0,0,0,.12);
-      color:var(--text);
-      font-size:14px;
-      outline:none;
+      width:100%; padding:11px 12px; border-radius:12px;
+      border:1px solid var(--border); background:rgba(0,0,0,.12);
+      color:var(--text); font-size:14px; outline:none;
     }
     textarea{min-height:110px; resize:vertical}
     input::placeholder, textarea::placeholder{color:rgba(183,195,230,.75)}
-
     .note{font-size:12px; color:var(--muted); margin-top:6px}
 
     .footer{
-      margin-top:18px;
-      display:flex;
-      justify-content:space-between;
-      gap:12px;
-      flex-wrap:wrap;
-      color:var(--muted);
-      font-size:12px;
+      margin-top:18px; display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap;
+      color:var(--muted); font-size:12px;
     }
-    .pill{
-      padding:6px 10px;
-      border:1px solid var(--border);
-      border-radius:999px;
-      background:rgba(255,255,255,.04);
-    }
+    .pill{padding:6px 10px; border:1px solid var(--border); border-radius:999px; background:rgba(255,255,255,.04)}
+    .small{font-size:13px}
   </style>
 </head>
 
 <body>
   <div class="wrap">
 
-    <!-- Top bar stays dark -->
     <header>
       <a class="brand" href="#top" aria-label="G2 Solutions">
         <div class="logoWrap">
-          <img class="logoImg" src="g2-logo-dark.jpg" alt="G2 Solutions logo">
+          <img class="logoImg" src="g2-logo-dark.jpg" alt="G2 Solutions logo" />
         </div>
         <div class="brandText">
           <strong>G2 Solutions</strong>
@@ -268,22 +223,29 @@
       </nav>
     </header>
 
-    <!-- White boxed hero header -->
-    <section id="top" class="heroBox">
-      <div class="heroTop">
-        <!-- Big centered wordmark/header image -->
-        <img class="heroWordmark" src="Header.jpg" alt="G2 Solutions">
+    <!-- White brand-only header -->
+    <section id="top" class="brandHero" aria-label="G2 Solutions — brand header">
+      <div class="brandHeroInner">
+        <!-- Replace filename if needed -->
+        <img class="brandWordmark" src="Header.jpg" alt="G2 Solutions" />
 
-        <h1 class="heroTitle">Jednostavna podrška.<br>Jasna rješenja.</h1>
-
-        <p class="heroLead">
-          G2 Solutions pruža praktičnu IT podršku za male tvrtke i obrte, te financijsko savjetovanje i edukacije
-          prilagođene stvarnim potrebama poslovanja.
-        </p>
+        <div class="brandDescriptor" aria-label="Opis usluga">
+          <span>IT podrška</span>
+          <span class="dot" aria-hidden="true"></span>
+          <span>Financije</span>
+        </div>
       </div>
+    </section>
 
-      <!-- Updated badges (sorted, renamed, new categories) -->
-      <div class="badges" aria-label="Usluge — kategorije">
+    <!-- Dark hero/content starts here -->
+    <section class="card">
+      <h1>Jednostavna podrška.<br/>Jasna rješenja.</h1>
+      <p class="lead">
+        G2 Solutions pruža praktičnu IT podršku za male tvrtke i obrte, te financijsko savjetovanje i edukacije
+        prilagođene stvarnim potrebama poslovanja.
+      </p>
+
+      <div class="badges" aria-label="Kategorije usluga">
         <div class="badge">🖥️ Računala</div>
         <div class="badge">🗄️ Poslužitelji</div>
         <div class="badge">💾 Pohrana podataka</div>
@@ -299,10 +261,9 @@
         <a class="btn" href="https://g2.hr" rel="noopener">g2.hr</a>
       </div>
 
-      <p class="noteLight">Sjedište: Karlovačka cesta 32C, 10020 Zagreb</p>
+      <p class="note">Sjedište: Karlovačka cesta 32C, 10020 Zagreb</p>
     </section>
 
-    <!-- Services stay as dark cards -->
     <section id="usluge" class="section grid">
       <div class="card">
         <h2>IT podrška</h2>
@@ -390,5 +351,4 @@
     }
   </script>
 </body>
-
 </html>
