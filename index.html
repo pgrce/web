@@ -18,6 +18,12 @@
       --accent:#6ea8ff; --accent2:#7cf7c6; --border:rgba(255,255,255,.10);
       --shadow: 0 16px 50px rgba(0,0,0,.35);
       --radius:18px; --max:980px;
+
+      /* light hero */
+      --light:#ffffff;
+      --darkText:#0F172A;
+      --darkMuted:#475569;
+      --lightBorder:rgba(15,23,42,.12);
     }
     *{box-sizing:border-box}
     body{
@@ -33,13 +39,13 @@
     a{color:inherit}
     .wrap{max-width:var(--max); margin:0 auto; padding:28px 18px 60px}
 
-    /* HEADER */
+    /* TOP BAR */
     header{
       display:flex;
       justify-content:space-between;
       align-items:center;
       gap:14px;
-      padding:10px 0 18px;
+      padding:10px 0 14px;
     }
     .brand{
       display:flex;
@@ -64,7 +70,7 @@
       color:var(--text);
     }
 
-    /* LOGO */
+    /* small logo in top bar */
     .logoWrap{
       width:56px; height:56px;
       border-radius:16px;
@@ -82,26 +88,111 @@
       display:block;
       transform:scale(1.08);
     }
-
-    /* HEADER IMAGE */
-    .headerImage{
-      margin:6px 0 18px;
-      border-radius:18px;
-      overflow:hidden;
-      border:1px solid var(--border);
-      box-shadow:var(--shadow);
-    }
-    .headerImage img{
-      width:100%;
-      height:auto;
-      display:block;
-    }
-
     @media (max-width:520px){
       .logoWrap{width:48px; height:48px; border-radius:14px}
     }
 
-    /* CARDS */
+    /* WHITE BOXED HERO */
+    .heroBox{
+      background:var(--light);
+      color:var(--darkText);
+      border:1px solid var(--lightBorder);
+      border-radius:var(--radius);
+      box-shadow: 0 16px 50px rgba(0,0,0,.22);
+      padding:34px 22px 26px;
+      margin:0 0 14px;
+    }
+
+    .heroTop{
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      text-align:center;
+      flex-direction:column;
+      gap:16px;
+      padding-bottom:18px;
+      border-bottom:1px solid rgba(15,23,42,.08);
+    }
+
+    /* uses your Header.jpg as big wordmark */
+    .heroWordmark{
+      width:min(860px, 100%);
+      height:auto;
+      display:block;
+    }
+
+    .heroTitle{
+      margin:0;
+      font-size:44px;
+      line-height:1.12;
+      letter-spacing:-0.02em;
+    }
+
+    .heroLead{
+      margin:0;
+      color:var(--darkMuted);
+      font-size:16px;
+      max-width:760px;
+    }
+
+    .badges{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin:18px 0 16px;
+      justify-content:center;
+    }
+    .badge{
+      font-size:12px;
+      color:var(--darkText);
+      background:rgba(15,23,42,.04);
+      border:1px solid rgba(15,23,42,.10);
+      padding:7px 10px;
+      border-radius:999px;
+      white-space:nowrap;
+    }
+
+    .ctaRow{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-top:10px;
+      justify-content:center;
+    }
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      padding:11px 14px;
+      border-radius:12px;
+      border:1px solid rgba(15,23,42,.14);
+      background:rgba(15,23,42,.02);
+      color:var(--darkText);
+      text-decoration:none;
+      font-weight:650;
+      font-size:14px;
+    }
+    .btn.primary{
+      background:linear-gradient(135deg, rgba(29,78,216,.95), rgba(110,168,255,.85));
+      border:none;
+      color:#ffffff;
+    }
+
+    .noteLight{
+      font-size:12px;
+      color:rgba(71,85,105,.95);
+      margin-top:12px;
+      text-align:center;
+    }
+
+    @media (max-width:520px){
+      .heroBox{padding:26px 16px 20px}
+      .heroTitle{font-size:34px}
+      .heroLead{font-size:15px}
+    }
+
+    /* DARK CARDS BELOW */
     .card{
       background: rgba(16,26,51,.85);
       border:1px solid var(--border);
@@ -109,38 +200,6 @@
       box-shadow:var(--shadow);
       padding:22px;
       backdrop-filter: blur(8px);
-    }
-    h1{margin:0 0 10px; font-size:36px; line-height:1.15}
-    @media (max-width:520px){ h1{font-size:30px} }
-    .lead{margin:0 0 14px; color:var(--muted)}
-
-    .badges{
-      display:flex; gap:10px; flex-wrap:wrap;
-      margin:14px 0 16px;
-    }
-    .badge{
-      font-size:12px;
-      background:rgba(255,255,255,.06);
-      border:1px solid var(--border);
-      padding:7px 10px;
-      border-radius:999px;
-    }
-
-    .ctaRow{display:flex; gap:10px; flex-wrap:wrap; margin-top:12px}
-    .btn{
-      display:inline-flex; align-items:center; justify-content:center;
-      padding:11px 14px;
-      border-radius:12px;
-      border:1px solid var(--border);
-      background:rgba(255,255,255,.06);
-      font-weight:650;
-      font-size:14px;
-      text-decoration:none;
-    }
-    .btn.primary{
-      background:linear-gradient(135deg, rgba(110,168,255,.95), rgba(124,247,198,.80));
-      border:none;
-      color:#071022;
     }
 
     .section{margin-top:14px}
@@ -165,8 +224,10 @@
       background:rgba(0,0,0,.12);
       color:var(--text);
       font-size:14px;
+      outline:none;
     }
     textarea{min-height:110px; resize:vertical}
+    input::placeholder, textarea::placeholder{color:rgba(183,195,230,.75)}
 
     .note{font-size:12px; color:var(--muted); margin-top:6px}
 
@@ -191,6 +252,7 @@
 <body>
   <div class="wrap">
 
+    <!-- Top bar stays dark -->
     <header>
       <a class="brand" href="#top" aria-label="G2 Solutions">
         <div class="logoWrap">
@@ -207,63 +269,69 @@
       </nav>
     </header>
 
-    <!-- HEADER IMAGE -->
-    <div class="headerImage">
-      <img src="Header.png" alt="G2 Solutions header">
-    </div>
+    <!-- White boxed hero header -->
+    <section id="top" class="heroBox">
+      <div class="heroTop">
+        <!-- Big centered wordmark/header image -->
+        <img class="heroWordmark" src="Header.jpg" alt="G2 Solutions">
 
-    <section id="top" class="card">
-      <h1>Jednostavna podrška.<br>Jasna rješenja.</h1>
-      <p class="lead">
-        G2 Solutions pruža praktičnu IT podršku za male tvrtke i obrte,
-        te financijsko savjetovanje i edukacije prilagođene stvarnim potrebama poslovanja.
-      </p>
+        <h1 class="heroTitle">Jednostavna podrška.<br>Jasna rješenja.</h1>
 
-      <div class="badges">
-        <div class="badge">💻 Računala & laptopi</div>
-        <div class="badge">🌐 Mreže & Wi-Fi</div>
-        <div class="badge">🖨️ Printeri</div>
-        <div class="badge">🔐 Sigurnost & backup</div>
-        <div class="badge">📊 Financije & edukacije</div>
+        <p class="heroLead">
+          G2 Solutions pruža praktičnu IT podršku za male tvrtke i obrte, te financijsko savjetovanje i edukacije
+          prilagođene stvarnim potrebama poslovanja.
+        </p>
+      </div>
+
+      <!-- Updated badges (sorted, renamed, new categories) -->
+      <div class="badges" aria-label="Usluge — kategorije">
+        <div class="badge">🖥️ Računala</div>
+        <div class="badge">🗄️ Poslužitelji</div>
+        <div class="badge">💾 Pohrana podataka</div>
+        <div class="badge">🌐 Mreže</div>
+        <div class="badge">🔐 Sigurnost</div>
+        <div class="badge">📡 IoT</div>
+        <div class="badge">🎓 Edukacije</div>
       </div>
 
       <div class="ctaRow">
         <a class="btn primary" href="#kontakt">Pošalji upit</a>
         <a class="btn" href="mailto:info@g2.hr">info@g2.hr</a>
-        <a class="btn" href="https://g2.hr">g2.hr</a>
+        <a class="btn" href="https://g2.hr" rel="noopener">g2.hr</a>
       </div>
 
-      <p class="note">Sjedište: Karlovačka cesta 32C, 10020 Zagreb</p>
+      <p class="noteLight">Sjedište: Karlovačka cesta 32C, 10020 Zagreb</p>
     </section>
 
+    <!-- Services stay as dark cards -->
     <section id="usluge" class="section grid">
       <div class="card">
         <h2>IT podrška</h2>
-        <p class="muted small">Rješavanje problema i održavanje.</p>
+        <p class="muted small">Rješavanje problema i održavanje, remote ili na lokaciji.</p>
         <ul class="list">
-          <li>Instalacije i nadogradnje</li>
-          <li>Podrška korisnicima</li>
-          <li>Preventivno održavanje</li>
+          <li>Instalacije, podešavanja i nadogradnje</li>
+          <li>Podrška korisnicima (email, Office, printeri)</li>
+          <li>Preventivno održavanje i optimizacija</li>
         </ul>
       </div>
 
       <div class="card">
         <h2>Mreže & sigurnost</h2>
-        <p class="muted small">Stabilna mreža i zaštita podataka.</p>
+        <p class="muted small">Stabilna mreža i osnovna zaštita podataka.</p>
         <ul class="list">
-          <li>Wi-Fi / LAN</li>
-          <li>Backup rješenja</li>
-          <li>Sigurnosne preporuke</li>
+          <li>Wi-Fi / LAN postavljanje i troubleshooting</li>
+          <li>Backup rješenja (lokalno ili cloud)</li>
+          <li>Ažuriranja i sigurnosne preporuke</li>
         </ul>
       </div>
 
       <div class="card">
-        <h2>Financije & edukacije</h2>
-        <p class="muted small">Praktični savjeti i edukacije.</p>
+        <h2>Financijsko savjetovanje & edukacije</h2>
+        <p class="muted small">Praktični savjeti i edukacije za bolje upravljanje financijama.</p>
         <ul class="list">
-          <li>Financijska pismenost</li>
-          <li>Cash-flow planiranje</li>
-          <li>Edukacije 1-na-1</li>
+          <li>Osnove financijske pismenosti za poduzetnike</li>
+          <li>Planiranje troškova i cash-flow</li>
+          <li>Edukacije 1-na-1 ili za timove</li>
         </ul>
       </div>
     </section>
@@ -271,39 +339,54 @@
     <section id="kontakt" class="section grid">
       <div class="card" style="grid-column: span 2;">
         <h2>Kontakt</h2>
+        <p class="muted">
+          Pošaljite kratko: o čemu se radi (IT / financije / edukacije), lokaciju i najbolji termin za povratni kontakt.
+        </p>
+
         <form onsubmit="return openMail(event)">
-          <input id="name" placeholder="Ime i tvrtka" required>
-          <input id="email" type="email" placeholder="Email" required>
+          <input id="name" type="text" placeholder="Ime i tvrtka" required />
+          <input id="email" type="email" placeholder="Email" required />
           <textarea id="msg" placeholder="Poruka" required></textarea>
-          <button class="btn primary">Pošalji email</button>
+          <button class="btn primary" type="submit">Pošalji email</button>
+          <div class="note">Forma otvara vaš email klijent — podaci se ne spremaju na webu.</div>
         </form>
       </div>
 
       <div class="card">
-        <p class="pill">✉️ info@g2.hr</p>
-        <p class="pill">🌐 g2.hr</p>
-        <p class="pill">📍 Karlovačka cesta 32C, Zagreb</p>
+        <h2>Podaci</h2>
+        <p class="pill small">✉️ info@g2.hr</p>
+        <p class="pill small">🌐 g2.hr</p>
+        <p class="pill small">📍 Karlovačka cesta 32C, 10020 Zagreb</p>
+        <div class="hr"></div>
+        <p class="muted small">Po dogovoru: remote podrška i dolazak na lokaciju.</p>
       </div>
     </section>
 
     <div class="footer">
       <span>© <span id="year"></span> G2 Solutions</span>
-      <span class="pill">Karlovačka cesta 32C, Zagreb</span>
-      <span class="pill">info@g2.hr</span>
+      <span class="pill">Karlovačka cesta 32C, 10020 Zagreb</span>
+      <span class="pill">Kontakt: info@g2.hr</span>
     </div>
-
   </div>
 
   <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
+    document.getElementById('year').textContent = new Date().getFullYear();
+
     function openMail(e){
       e.preventDefault();
-      const n = name.value, em = email.value, m = msg.value;
-      location.href =
-        "mailto:info@g2.hr?subject=" +
-        encodeURIComponent("Upit — G2 Solutions ("+n+")") +
-        "&body=" +
-        encodeURIComponent("Email: "+em+"\n\n"+m);
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const msg = document.getElementById('msg').value.trim();
+
+      const to = "info@g2.hr";
+      const subject = encodeURIComponent("Upit — G2 Solutions (" + name + ")");
+      const body = encodeURIComponent(
+        "Ime/tvrtka: " + name + "\n" +
+        "Email: " + email + "\n\n" +
+        "Poruka:\n" + msg + "\n"
+      );
+
+      window.location.href = "mailto:" + to + "?subject=" + subject + "&body=" + body;
       return false;
     }
   </script>
