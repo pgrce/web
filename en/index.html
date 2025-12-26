@@ -70,27 +70,35 @@
     .wrap{max-width:var(--max); margin:0 auto; padding:28px 18px 32px}
 
     .topRow{display:flex; justify-content:flex-end; margin-bottom:10px}
-    .lang{
-      display:inline-flex; gap:6px; align-items:center;
-      font-size:12px; color:rgba(234,240,255,.80);
-    }
-    .lang a{
-      text-decoration:none;
-      padding:6px 10px;
-      border-radius:999px;
-      border:1px solid rgba(255,255,255,.12);
-      background:rgba(255,255,255,.06);
-      opacity:.9;
-      transition:opacity .16s ease;
-    }
-    .lang a:hover{opacity:1}
-    .lang .active{
-      border-color: rgba(110,168,255,.55);
-      background: rgba(110,168,255,.14);
-      opacity:1;
-    }
+    .langText{
+  display:flex;
+  gap:14px;
+  align-items:center;
+  font-size:12px;
+  user-select:none;
+  color:rgba(234,240,255,.80);
+}
+.langText a{
+  text-decoration:none;
+  color:rgba(234,240,255,.72);
+  padding:2px 0;
+  letter-spacing:.04em;
+  text-transform:uppercase;
+  transition:color .16s ease, opacity .16s ease;
+}
+.langText a:hover{
+  color:rgba(234,240,255,.95);
+  text-decoration:underline;
+  text-underline-offset:4px;
+}
+.langText a.active{
+  color:#fff;
+  font-weight:700;
+  text-decoration:underline;
+  text-underline-offset:4px;
+}
 
-    .brandHero{
+.brandHero{
       background:var(--light);
       color:var(--darkText);
       border-radius:18px;
@@ -251,7 +259,7 @@
 
   <div class="wrap">
     <div class="topRow">
-      <div class="lang" aria-label="Language switch">
+      <div class="langText" aria-label="Language switch">
         <a href="/web/hr/" onclick="localStorage.setItem('lang','hr')">HR</a>
         <a class="active" href="/web/en/" onclick="localStorage.setItem('lang','en')">EN</a>
       </div>
@@ -329,7 +337,7 @@
       </div>
     </section>
 
-    <div class="footer">©&nbsp;<span id="year"></span>&nbsp;G2 Solutions · Zagreb · info@g2.hr</div>
+    <div class="footer">©&nbsp;<span id="year"></span>&nbsp;G2 Solutions · Zagreb, Croatia · info@g2.hr</div>
   </div>
 
   <script>
