@@ -4,16 +4,12 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>G2 Solutions</title>
-
   <script>
     (function () {
       const saved = localStorage.getItem('lang'); // 'hr' or 'en'
       const lang = (saved || navigator.language || navigator.userLanguage || 'en').toLowerCase();
-
-      // GitHub Pages project site base path-safe redirect (keeps /web/ if present)
       const base = location.pathname.replace(/\/[^\/]*$/, '/'); // folder where index.html lives
       const target = lang.startsWith('hr') ? 'hr/' : 'en/';
-
       location.replace(base + target);
     })();
   </script>
