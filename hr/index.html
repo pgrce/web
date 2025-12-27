@@ -52,7 +52,6 @@ a{color:inherit}
   position:relative;
 }
 
-/* Language switch */
 .topbar{display:flex; align-items:center; justify-content:flex-end; margin-bottom:16px;}
 .lang{display:flex; gap:18px; font-size:12px; letter-spacing:.06em; text-transform:uppercase; user-select:none; position:relative;}
 .lang a{text-decoration:none; color:rgba(233,238,247,.62); padding:8px 6px; transition:color .15s ease, transform .15s ease;}
@@ -77,13 +76,7 @@ a{color:inherit}
   background: radial-gradient(900px 240px at 50% 0%, rgba(29,78,216,.16), transparent 60%);
   pointer-events:none;
 }
-.brandMark{
-  display:flex;
-  align-items:baseline;
-  justify-content:center;
-  gap:22px;
-  flex-wrap:wrap;
-}
+.brandMark{display:flex; align-items:baseline; justify-content:center; gap:22px; flex-wrap:wrap;}
 .brandG2{font-weight:900; font-size:64px; letter-spacing:-.04em; line-height:1;}
 .brandG2 .g{color:#0F172A}
 .brandG2 .two{color:var(--accent); margin-left:2px;}
@@ -104,31 +97,15 @@ a{color:inherit}
 .p{color:rgba(233,238,247,.82); font-size:15.5px; line-height:1.7; max-width:72ch; margin:0 0 14px;}
 
 .tags{display:flex; flex-wrap:wrap; gap:10px; margin-top:4px;}
-.tag{
-  display:inline-flex; align-items:center; gap:8px;
-  padding: 8px 12px;
-  border-radius: 999px;
-  border: 1px solid rgba(255,255,255,.10);
-  background: rgba(255,255,255,.04);
-  color: rgba(233,238,247,.82);
-  font-size: 12.5px;
-  letter-spacing:.01em;
-}
+.tag{display:inline-flex; align-items:center; gap:8px; padding:8px 12px; border-radius:999px; border:1px solid rgba(255,255,255,.10); background:rgba(255,255,255,.04); color:rgba(233,238,247,.82); font-size:12.5px; letter-spacing:.01em;}
 .tag svg{opacity:.9}
 
-/* Micro CTA (hidden on mobile to avoid redundancy with floating icon) */
 .microCta{margin-top:14px; color:rgba(233,238,247,.75); font-size:13.5px; display:flex; align-items:baseline; gap:10px; flex-wrap:wrap;}
 .microCta a{color:var(--accent); text-decoration:none; border-bottom:1px solid rgba(29,78,216,.55); padding-bottom:2px; transition:border-color .15s ease, transform .15s ease;}
 .microCta a:hover{border-color:rgba(29,78,216,1); transform:translateX(2px);}
 
 .grid3{display:grid; grid-template-columns:1fr; gap:14px; margin-bottom:18px;}
-.card{
-  background: linear-gradient(180deg, rgba(12,18,35,.96), rgba(9,14,28,.96));
-  border: 1px solid rgba(255,255,255,.08);
-  border-radius: var(--cardRadius);
-  padding: 18px 18px 16px;
-  box-shadow: var(--shadow);
-}
+.card{background: linear-gradient(180deg, rgba(12,18,35,.96), rgba(9,14,28,.96)); border: 1px solid rgba(255,255,255,.08); border-radius: var(--cardRadius); padding: 18px 18px 16px; box-shadow: var(--shadow);}
 .card h3{margin:0 0 10px; font-size:18px; letter-spacing:-.02em;}
 .card ul{margin:0; padding-left:18px; color:rgba(233,238,247,.78); line-height:1.75;}
 .card li{margin:4px 0}
@@ -137,34 +114,11 @@ a{color:inherit}
 .contact h2{margin:0 0 6px; font-size:20px; letter-spacing:-.02em;}
 .contact .note{margin:0 0 14px; color:rgba(233,238,247,.68); font-size:13.5px;}
 .form{display:grid; gap:12px;}
-.field{
-  width:100%;
-  border-radius:12px;
-  border: 1px solid rgba(255,255,255,.10);
-  background: rgba(255,255,255,.03);
-  padding: 12px 12px;
-  color: rgba(233,238,247,.92);
-  font-size:14px;
-  outline:none;
-}
+.field{width:100%; border-radius:12px; border:1px solid rgba(255,255,255,.10); background:rgba(255,255,255,.03); padding:12px 12px; color:rgba(233,238,247,.92); font-size:14px; outline:none;}
 .field::placeholder{color:rgba(233,238,247,.40)}
 textarea.field{min-height:110px; resize:vertical}
-.field:focus{
-  border-color: rgba(29,78,216,.65);
-  box-shadow: 0 0 0 1px rgba(29,78,216,.35), 0 6px 18px rgba(29,78,216,.18);
-  background: rgba(255,255,255,.04);
-}
-.btn{
-  border:0;
-  border-radius:12px;
-  padding:12px 14px;
-  font-weight:700;
-  letter-spacing:.02em;
-  cursor:pointer;
-  color:#081023;
-  background: linear-gradient(90deg, #6AA6FF, #7EE7E7, #91F7C2);
-  box-shadow: 0 10px 30px rgba(29,78,216,.22);
-}
+.field:focus{border-color: rgba(29,78,216,.65); box-shadow: 0 0 0 1px rgba(29,78,216,.35), 0 6px 18px rgba(29,78,216,.18); background: rgba(255,255,255,.04);}
+.btn{border:0; border-radius:12px; padding:12px 14px; font-weight:700; letter-spacing:.02em; cursor:pointer; color:#081023; background:linear-gradient(90deg, #6AA6FF, #7EE7E7, #91F7C2); box-shadow: 0 10px 30px rgba(29,78,216,.22);}
 .btn:active{transform: translateY(1px)}
 
 .footer{margin-top:14px; text-align:center; color:rgba(233,238,247,.55); font-size:12.5px; padding-bottom:6px;}
@@ -191,42 +145,40 @@ textarea.field{min-height:110px; resize:vertical}
   .h1{ font-size: 38px; }
 }
 
-@media (max-width: 640px){
-  .microCta{ display:none; }
-}
+@media (max-width: 640px){ .microCta{ display:none; } }
 
-/* Floating mail sticky (icon-only) */
+/* Floating mail sticky - "reverse D" (flat on the right edge) */
 .floatMail{ display:none; }
 @media (max-width: 900px){
   .floatMail{
     display:flex;
     position:fixed;
-    right: 12px;
-    top: 58%;
-    transform: translateY(-50%);
+    right: 0; /* touches the edge */
+    bottom: calc(96px + env(safe-area-inset-bottom)); /* lower on screen, above iOS toolbar */
     z-index: 999;
     transition: opacity .18s ease, transform .18s ease;
   }
   .floatMail.is-hidden{
     opacity:0;
     pointer-events:none;
-    transform: translateY(-50%) translateX(10px);
+    transform: translateX(10px);
   }
   .floatMail a{
-    width: 48px;
+    width: 56px;
     height: 48px;
     display:flex;
     align-items:center;
     justify-content:center;
-    border-radius: 999px;
+    border-radius: 999px 0 0 999px; /* reverse D shape */
     background: linear-gradient(90deg, #6AA6FF, #7EE7E7, #91F7C2);
     color: #081023;
     text-decoration:none;
     box-shadow: 0 14px 40px rgba(0,0,0,.45);
     border: 1px solid rgba(255,255,255,.10);
+    border-right: 0; /* cleaner edge contact */
   }
+  .floatMail svg{ display:block; transform: translateY(-.5px); } /* nudge up to optical center */
   .floatMail a:active{ transform: translateY(1px); }
-  .floatMail svg{ opacity: .95; }
 }
 </style>
 </head>
@@ -265,16 +217,16 @@ textarea.field{min-height:110px; resize:vertical}
         </div>
 
         <div class="microCta">
-          <span>Trebate pomoć s nečim od navedenog?</span>
-          <a href="#contact">Pošaljite upit →</a>
+          <span>Need help with any of the above?</span>
+          <a href="#contact">Send an enquiry →</a>
         </div>
       </div>
     </section>
 
     <section class="grid3" aria-label="Service sections">
       <div class="card"><h3>IT podrška</h3><ul><li>Instalacije i nadogradnje</li><li>Korisnička podrška</li><li>Održavanje i optimizacija</li></ul></div>
-      <div class="card"><h3>Mreže i sigurnost</h3><ul><li>LAN / Wi‑Fi</li><li>Backup rješenja</li><li>Preporuke sigurnosti</li></ul></div>
-      <div class="card"><h3>Financije i edukacije</h3><ul><li>Financijska pismenost</li><li>Planiranje troškova</li><li>1‑na‑1 edukacije</li></ul></div>
+      <div class="card"><h3>Mreže i sigurnost</h3><ul><li>LAN / Wi-Fi</li><li>Backup rješenja</li><li>Preporuke sigurnosti</li></ul></div>
+      <div class="card"><h3>Financije i edukacije</h3><ul><li>Financijska pismenost</li><li>Planiranje troškova</li><li>1-na-1 edukacije</li></ul></div>
     </section>
 
     <section id="contact" class="panel contact" aria-label="Contact form">
@@ -323,9 +275,7 @@ textarea.field{min-height:110px; resize:vertical}
       const floating = document.querySelector('.floatMail');
       const contact = document.querySelector('#contact');
       if(!floating || !contact) return;
-
       const setHidden = (hidden) => floating.classList.toggle('is-hidden', !!hidden);
-
       if('IntersectionObserver' in window){
         const io = new IntersectionObserver((entries) => {
           entries.forEach(entry => {
