@@ -10,9 +10,9 @@
       const saved = localStorage.getItem('lang'); // 'hr' or 'en'
       const lang = (saved || navigator.language || navigator.userLanguage || 'en').toLowerCase();
 
-      // GitHub Pages project site = /web/ -> treba zadržati taj base path
-      const base = location.pathname.replace(/\/[^\/]*$/, '/'); // folder gdje je index.html
-      const target = lang.startsWith('hr') ? 'hr.html' : 'en/';
+      // GitHub Pages project site base path-safe redirect (keeps /web/ if present)
+      const base = location.pathname.replace(/\/[^\/]*$/, '/'); // folder where index.html lives
+      const target = lang.startsWith('hr') ? 'hr/' : 'en/';
 
       location.replace(base + target);
     })();
