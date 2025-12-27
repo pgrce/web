@@ -6,16 +6,13 @@
   <title>G2 Solutions — IT podrška i financije</title>
   <meta name="description" content="G2 Solutions (g2.hr) — praktična IT podrška za male tvrtke i obrte, uz financijsko savjetovanje i edukacije. Zagreb." />
   <meta name="theme-color" content="#0b1220" />
-
   <meta property="og:title" content="G2 Solutions — IT podrška i financije" />
   <meta property="og:description" content="G2 Solutions (g2.hr) — praktična IT podrška za male tvrtke i obrte, uz financijsko savjetovanje i edukacije. Zagreb." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://g2.hr/" />
-
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-
   <style>
 :root{
   --bg:#070B14;
@@ -47,19 +44,21 @@ body{
   letter-spacing:-.01em;
 }
 a{color:inherit}
+
 .wrap{
   width: min(var(--max), calc(100% - 48px));
   margin: 0 auto;
-  padding: 28px 0 46px; /* slightly tighter top */
+  padding: 28px 0 46px;
   position:relative;
 }
 
 /* Language switch */
 .topbar{display:flex; align-items:center; justify-content:flex-end; margin-bottom:16px;}
-.lang{display:flex; gap:18px; font-size:12px; letter-spacing:.06em; text-transform:uppercase; user-select:none;}
+.lang{display:flex; gap:18px; font-size:12px; letter-spacing:.06em; text-transform:uppercase; user-select:none; position:relative;}
 .lang a{text-decoration:none; color:rgba(233,238,247,.62); padding:8px 6px; transition:color .15s ease, transform .15s ease;}
 .lang a:hover{color:rgba(233,238,247,.92); transform:translateY(-1px);}
 .lang a.active{color:rgba(233,238,247,1);}
+.lang:after{content:""; position:absolute; right:0; bottom:-6px; width:28px; height:1px; background: rgba(255,255,255,.12);}
 
 .brandCard{
   background:#F5F7FB;
@@ -83,7 +82,7 @@ a{color:inherit}
   align-items:baseline;
   justify-content:center;
   gap:22px;
-  flex-wrap:wrap; /* prevents overflow on mobile */
+  flex-wrap:wrap;
 }
 .brandG2{font-weight:900; font-size:64px; letter-spacing:-.04em; line-height:1;}
 .brandG2 .g{color:#0F172A}
@@ -117,7 +116,7 @@ a{color:inherit}
 }
 .tag svg{opacity:.9}
 
-/* Micro CTA */
+/* Micro CTA (hidden on mobile to avoid redundancy with floating icon) */
 .microCta{margin-top:14px; color:rgba(233,238,247,.75); font-size:13.5px; display:flex; align-items:baseline; gap:10px; flex-wrap:wrap;}
 .microCta a{color:var(--accent); text-decoration:none; border-bottom:1px solid rgba(29,78,216,.55); padding-bottom:2px; transition:border-color .15s ease, transform .15s ease;}
 .microCta a:hover{border-color:rgba(29,78,216,1); transform:translateX(2px);}
@@ -168,10 +167,9 @@ textarea.field{min-height:110px; resize:vertical}
 }
 .btn:active{transform: translateY(1px)}
 
-.footer{margin-top:14px; text-align:center; color:rgba(233,238,247,.55); font-size:12.5px;}
+.footer{margin-top:14px; text-align:center; color:rgba(233,238,247,.55); font-size:12.5px; padding-bottom:6px;}
 .hr{height:1px; background:rgba(255,255,255,.08); margin:12px 0 0; border:0;}
 
-/* Desktop refinements */
 @media (min-width: 860px){
   .wrap{ padding: 34px 0 46px; }
   .topbar{ margin-bottom: 22px; }
@@ -182,10 +180,9 @@ textarea.field{min-height:110px; resize:vertical}
   .brandCard{ padding: 56px 34px 28px;}
 }
 
-/* Header mobile sizing to avoid clipping */
 @media (max-width: 520px){
-  .wrap{ width: min(var(--max), calc(100% - 32px)); padding-top: 20px; }
-  .topbar{ margin-bottom: 12px; }
+  .wrap{ width: min(var(--max), calc(100% - 32px)); padding-top: 12px; }
+  .topbar{ margin-bottom: 8px; }
   .brandCard{ padding: 30px 18px 18px; border-radius: 18px; }
   .brandMark{ gap: 14px; }
   .brandG2{ font-size: 52px; }
@@ -194,48 +191,42 @@ textarea.field{min-height:110px; resize:vertical}
   .h1{ font-size: 38px; }
 }
 
-/* Sticky mobile contact CTA (shown only on small screens) */
-.stickyCta{ display:none; }
 @media (max-width: 640px){
-  .wrap{ padding-bottom: 112px; } /* space for sticky button */
-  .stickyCta{
+  .microCta{ display:none; }
+}
+
+/* Floating mail sticky (icon-only) */
+.floatMail{ display:none; }
+@media (max-width: 900px){
+  .floatMail{
     display:flex;
     position:fixed;
-    left:16px;
-    right:16px;
-    bottom:16px;
-    z-index:999;
-    border: 1px solid rgba(255,255,255,.10);
-    border-radius: 14px;
-    background: rgba(11,18,32,.45); /* slightly lighter */
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    padding:10px;
-    box-shadow: 0 18px 60px rgba(0,0,0,.45);
+    right: 12px;
+    top: 58%;
+    transform: translateY(-50%);
+    z-index: 999;
     transition: opacity .18s ease, transform .18s ease;
   }
-  .stickyCta.is-hidden{
+  .floatMail.is-hidden{
     opacity:0;
     pointer-events:none;
-    transform: translateY(10px);
+    transform: translateY(-50%) translateX(10px);
   }
-  .stickyCta a{
-    width:100%;
+  .floatMail a{
+    width: 48px;
+    height: 48px;
     display:flex;
     align-items:center;
     justify-content:center;
-    gap:10px;
-    border-radius: 12px;
-    padding: 12px 14px; /* slightly shorter */
-    font-weight: 800;
-    letter-spacing:.02em;
-    text-decoration:none;
-    color: #081023;
+    border-radius: 999px;
     background: linear-gradient(90deg, #6AA6FF, #7EE7E7, #91F7C2);
-    box-shadow: 0 10px 30px rgba(29,78,216,.28);
+    color: #081023;
+    text-decoration:none;
+    box-shadow: 0 14px 40px rgba(0,0,0,.45);
+    border: 1px solid rgba(255,255,255,.10);
   }
-  .stickyCta a:active{ transform: translateY(1px); }
-  .stickyCta svg{ opacity:.95; }
+  .floatMail a:active{ transform: translateY(1px); }
+  .floatMail svg{ opacity: .95; }
 }
 </style>
 </head>
@@ -301,23 +292,23 @@ textarea.field{min-height:110px; resize:vertical}
     <footer class="footer">© 2025 G2 Solutions · Zagreb, Hrvatska · info@g2.hr</footer>
   </main>
 
-  <div class="stickyCta" aria-label="Mobile contact shortcut">
-    <a href="#contact">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 8h10M7 12h7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M20 12c0 4.4-4 8-8.9 8-.9 0-1.8-.1-2.6-.4L4 21l1.3-3.3C4.5 16.6 4 14.9 4 13c0-4.4 4-8 8.9-8S20 7.6 20 12Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
-      <span>Pošaljite upit</span>
+  <div class="floatMail" aria-label="Quick email shortcut">
+    <a href="#contact" title="Send an enquiry" aria-label="Send an enquiry">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+  <path d="M4.5 7.5h15A2.5 2.5 0 0 1 22 10v8A2.5 2.5 0 0 1 19.5 20.5h-15A2.5 2.5 0 0 1 2 18v-8A2.5 2.5 0 0 1 4.5 7.5Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+  <path d="M3.2 9.2 12 14.6l8.8-5.4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
     </a>
   </div>
 
   <script>
 
-    // Save language preference when toggling
     document.querySelectorAll('nav.lang a[data-lang]').forEach(a => {
       a.addEventListener('click', () => {
         try { localStorage.setItem('lang', a.getAttribute('data-lang')); } catch(e) {}
       });
     });
 
-    // Smooth scroll for in-page anchors
     document.querySelectorAll('a[href^="#"]').forEach(a => {
       a.addEventListener('click', (e) => {
         const id = a.getAttribute('href');
@@ -328,15 +319,12 @@ textarea.field{min-height:110px; resize:vertical}
       });
     });
 
-    // Hide sticky CTA when contact section is in view (and show again when leaving)
     (function(){
-      const sticky = document.querySelector('.stickyCta');
+      const floating = document.querySelector('.floatMail');
       const contact = document.querySelector('#contact');
-      if(!sticky || !contact) return;
+      if(!floating || !contact) return;
 
-      const setHidden = (hidden) => {
-        sticky.classList.toggle('is-hidden', !!hidden);
-      };
+      const setHidden = (hidden) => floating.classList.toggle('is-hidden', !!hidden);
 
       if('IntersectionObserver' in window){
         const io = new IntersectionObserver((entries) => {
@@ -347,7 +335,6 @@ textarea.field{min-height:110px; resize:vertical}
         }, { threshold: 0.18 });
         io.observe(contact);
       } else {
-        // Fallback
         const onScroll = () => {
           const r = contact.getBoundingClientRect();
           const inView = r.top < window.innerHeight * 0.7 && r.bottom > window.innerHeight * 0.2;
