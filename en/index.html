@@ -47,46 +47,74 @@ body{
   letter-spacing:-.01em;
 }
 a{color:inherit}
-.wrap{width:min(var(--max), calc(100% - 48px)); margin:0 auto; padding:34px 0 46px; position:relative;}
+.wrap{
+  width: min(var(--max), calc(100% - 48px));
+  margin: 0 auto;
+  padding: 28px 0 46px; /* slightly tighter top */
+  position:relative;
+}
 
 /* Language switch */
-.topbar{display:flex; align-items:center; justify-content:flex-end; margin-bottom:22px;}
+.topbar{display:flex; align-items:center; justify-content:flex-end; margin-bottom:16px;}
 .lang{display:flex; gap:18px; font-size:12px; letter-spacing:.06em; text-transform:uppercase; user-select:none;}
 .lang a{text-decoration:none; color:rgba(233,238,247,.62); padding:8px 6px; transition:color .15s ease, transform .15s ease;}
 .lang a:hover{color:rgba(233,238,247,.92); transform:translateY(-1px);}
 .lang a.active{color:rgba(233,238,247,1);}
 
 .brandCard{
-  background:#F5F7FB; color:#0F172A;
-  border-radius:20px; box-shadow:var(--shadow);
-  padding:44px 34px 26px; text-align:center;
-  margin-bottom:18px; position:relative; overflow:hidden;
+  background:#F5F7FB;
+  color:#0F172A;
+  border-radius: 20px;
+  box-shadow: var(--shadow);
+  padding: 40px 30px 24px;
+  text-align:center;
+  margin-bottom: 18px;
+  position:relative;
+  overflow:hidden;
 }
 .brandCard:before{
-  content:""; position:absolute; inset:-1px;
+  content:"";
+  position:absolute; inset:-1px;
   background: radial-gradient(900px 240px at 50% 0%, rgba(29,78,216,.16), transparent 60%);
   pointer-events:none;
 }
-.brandMark{display:flex; align-items:baseline; justify-content:center; gap:22px;}
+.brandMark{
+  display:flex;
+  align-items:baseline;
+  justify-content:center;
+  gap:22px;
+  flex-wrap:wrap; /* prevents overflow on mobile */
+}
 .brandG2{font-weight:900; font-size:64px; letter-spacing:-.04em; line-height:1;}
 .brandG2 .g{color:#0F172A}
 .brandG2 .two{color:var(--accent); margin-left:2px;}
 .brandWord{font-weight:700; font-size:44px; letter-spacing:.04em; line-height:1;}
-.brandSub{margin-top:18px; font-size:15px; color:rgba(15,23,42,.72); letter-spacing:.06em;}
+.brandSub{margin-top:16px; font-size:15px; color:rgba(15,23,42,.72); letter-spacing:.06em;}
 .brandSub .dot{color:var(--accent); padding:0 10px; font-weight:900}
 
 .panel{
   background: linear-gradient(180deg, rgba(14,23,48,.98), rgba(10,16,35,.98));
-  border:1px solid rgba(255,255,255,.08);
-  border-radius:22px;
-  box-shadow:var(--shadow);
-  padding:30px 30px 22px;
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 22px;
+  box-shadow: var(--shadow);
+  padding: 30px 30px 22px;
 }
+
 .hero{display:grid; grid-template-columns:1fr; gap:18px; margin-bottom:18px;}
 .h1{font-size:44px; line-height:1.06; letter-spacing:-.03em; margin:2px 0 8px;}
 .p{color:rgba(233,238,247,.82); font-size:15.5px; line-height:1.7; max-width:72ch; margin:0 0 14px;}
+
 .tags{display:flex; flex-wrap:wrap; gap:10px; margin-top:4px;}
-.tag{display:inline-flex; align-items:center; gap:8px; padding:8px 12px; border-radius:999px; border:1px solid rgba(255,255,255,.10); background:rgba(255,255,255,.04); color:rgba(233,238,247,.82); font-size:12.5px; letter-spacing:.01em;}
+.tag{
+  display:inline-flex; align-items:center; gap:8px;
+  padding: 8px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,.10);
+  background: rgba(255,255,255,.04);
+  color: rgba(233,238,247,.82);
+  font-size: 12.5px;
+  letter-spacing:.01em;
+}
 .tag svg{opacity:.9}
 
 /* Micro CTA */
@@ -97,10 +125,10 @@ a{color:inherit}
 .grid3{display:grid; grid-template-columns:1fr; gap:14px; margin-bottom:18px;}
 .card{
   background: linear-gradient(180deg, rgba(12,18,35,.96), rgba(9,14,28,.96));
-  border:1px solid rgba(255,255,255,.08);
-  border-radius:var(--cardRadius);
-  padding:18px 18px 16px;
-  box-shadow:var(--shadow);
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: var(--cardRadius);
+  padding: 18px 18px 16px;
+  box-shadow: var(--shadow);
 }
 .card h3{margin:0 0 10px; font-size:18px; letter-spacing:-.02em;}
 .card ul{margin:0; padding-left:18px; color:rgba(233,238,247,.78); line-height:1.75;}
@@ -113,10 +141,10 @@ a{color:inherit}
 .field{
   width:100%;
   border-radius:12px;
-  border:1px solid rgba(255,255,255,.10);
-  background:rgba(255,255,255,.03);
-  padding:12px 12px;
-  color:rgba(233,238,247,.92);
+  border: 1px solid rgba(255,255,255,.10);
+  background: rgba(255,255,255,.03);
+  padding: 12px 12px;
+  color: rgba(233,238,247,.92);
   font-size:14px;
   outline:none;
 }
@@ -128,30 +156,48 @@ textarea.field{min-height:110px; resize:vertical}
   background: rgba(255,255,255,.04);
 }
 .btn{
-  border:0; border-radius:12px;
+  border:0;
+  border-radius:12px;
   padding:12px 14px;
-  font-weight:700; letter-spacing:.02em;
+  font-weight:700;
+  letter-spacing:.02em;
   cursor:pointer;
   color:#081023;
   background: linear-gradient(90deg, #6AA6FF, #7EE7E7, #91F7C2);
-  box-shadow:0 10px 30px rgba(29,78,216,.22);
+  box-shadow: 0 10px 30px rgba(29,78,216,.22);
 }
-.btn:active{transform:translateY(1px)}
+.btn:active{transform: translateY(1px)}
+
 .footer{margin-top:14px; text-align:center; color:rgba(233,238,247,.55); font-size:12.5px;}
 .hr{height:1px; background:rgba(255,255,255,.08); margin:12px 0 0; border:0;}
 
+/* Desktop refinements */
 @media (min-width: 860px){
-  .hero{ padding:34px 34px 26px;}
-  .panel{ padding:34px;}
-  .grid3{ grid-template-columns:1fr 1fr 1fr; gap:16px;}
-  .card{ padding:18px 18px 18px;}
-  .brandCard{ padding:56px 34px 28px;}
+  .wrap{ padding: 34px 0 46px; }
+  .topbar{ margin-bottom: 22px; }
+  .hero{ padding: 34px 34px 26px;}
+  .panel{ padding: 34px;}
+  .grid3{ grid-template-columns: 1fr 1fr 1fr; gap: 16px;}
+  .card{ padding: 18px 18px 18px;}
+  .brandCard{ padding: 56px 34px 28px;}
+}
+
+/* Header mobile sizing to avoid clipping */
+@media (max-width: 520px){
+  .wrap{ width: min(var(--max), calc(100% - 32px)); padding-top: 20px; }
+  .topbar{ margin-bottom: 12px; }
+  .brandCard{ padding: 30px 18px 18px; border-radius: 18px; }
+  .brandMark{ gap: 14px; }
+  .brandG2{ font-size: 52px; }
+  .brandWord{ font-size: 34px; letter-spacing: .03em; }
+  .brandSub{ font-size: 14px; letter-spacing: .05em; margin-top: 14px; }
+  .h1{ font-size: 38px; }
 }
 
 /* Sticky mobile contact CTA (shown only on small screens) */
 .stickyCta{ display:none; }
 @media (max-width: 640px){
-  .wrap{ padding-bottom: 110px; } /* space for sticky button */
+  .wrap{ padding-bottom: 112px; } /* space for sticky button */
   .stickyCta{
     display:flex;
     position:fixed;
@@ -161,11 +207,17 @@ textarea.field{min-height:110px; resize:vertical}
     z-index:999;
     border: 1px solid rgba(255,255,255,.10);
     border-radius: 14px;
-    background: rgba(11,18,32,.55);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    background: rgba(11,18,32,.45); /* slightly lighter */
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
     padding:10px;
     box-shadow: 0 18px 60px rgba(0,0,0,.45);
+    transition: opacity .18s ease, transform .18s ease;
+  }
+  .stickyCta.is-hidden{
+    opacity:0;
+    pointer-events:none;
+    transform: translateY(10px);
   }
   .stickyCta a{
     width:100%;
@@ -174,7 +226,7 @@ textarea.field{min-height:110px; resize:vertical}
     justify-content:center;
     gap:10px;
     border-radius: 12px;
-    padding: 14px 14px;
+    padding: 12px 14px; /* slightly shorter */
     font-weight: 800;
     letter-spacing:.02em;
     text-decoration:none;
@@ -185,7 +237,6 @@ textarea.field{min-height:110px; resize:vertical}
   .stickyCta a:active{ transform: translateY(1px); }
   .stickyCta svg{ opacity:.95; }
 }
-
 </style>
 </head>
 <body>
@@ -231,8 +282,8 @@ textarea.field{min-height:110px; resize:vertical}
 
     <section class="grid3" aria-label="Service sections">
       <div class="card"><h3>IT support</h3><ul><li>Installations & upgrades</li><li>User support</li><li>Maintenance & optimisation</li></ul></div>
-      <div class="card"><h3>Networking & security</h3><ul><li>LAN / Wi-Fi</li><li>Backup solutions</li><li>Security recommendations</li></ul></div>
-      <div class="card"><h3>Finance & training</h3><ul><li>Financial literacy</li><li>Cost planning</li><li>1-on-1 training</li></ul></div>
+      <div class="card"><h3>Networking & security</h3><ul><li>LAN / Wi‑Fi</li><li>Backup solutions</li><li>Security recommendations</li></ul></div>
+      <div class="card"><h3>Finance & training</h3><ul><li>Financial literacy</li><li>Cost planning</li><li>1‑on‑1 training</li></ul></div>
     </section>
 
     <section id="contact" class="panel contact" aria-label="Contact form">
@@ -258,11 +309,15 @@ textarea.field{min-height:110px; resize:vertical}
   </div>
 
   <script>
+
+    // Save language preference when toggling
     document.querySelectorAll('nav.lang a[data-lang]').forEach(a => {
       a.addEventListener('click', () => {
         try { localStorage.setItem('lang', a.getAttribute('data-lang')); } catch(e) {}
       });
     });
+
+    // Smooth scroll for in-page anchors
     document.querySelectorAll('a[href^="#"]').forEach(a => {
       a.addEventListener('click', (e) => {
         const id = a.getAttribute('href');
@@ -272,6 +327,37 @@ textarea.field{min-height:110px; resize:vertical}
         el.scrollIntoView({ behavior: 'smooth', block: 'start' });
       });
     });
+
+    // Hide sticky CTA when contact section is in view (and show again when leaving)
+    (function(){
+      const sticky = document.querySelector('.stickyCta');
+      const contact = document.querySelector('#contact');
+      if(!sticky || !contact) return;
+
+      const setHidden = (hidden) => {
+        sticky.classList.toggle('is-hidden', !!hidden);
+      };
+
+      if('IntersectionObserver' in window){
+        const io = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if(entry.target !== contact) return;
+            setHidden(entry.isIntersecting);
+          });
+        }, { threshold: 0.18 });
+        io.observe(contact);
+      } else {
+        // Fallback
+        const onScroll = () => {
+          const r = contact.getBoundingClientRect();
+          const inView = r.top < window.innerHeight * 0.7 && r.bottom > window.innerHeight * 0.2;
+          setHidden(inView);
+        };
+        window.addEventListener('scroll', onScroll, { passive:true });
+        onScroll();
+      }
+    })();
+
   </script>
 </body>
 </html>
