@@ -54,11 +54,11 @@ a{color:inherit}
 
 .topbar{display:flex; align-items:center; justify-content:flex-end; margin-bottom:16px;}
 .lang{display:flex; gap:18px; font-size:12px; letter-spacing:.06em; text-transform:uppercase; user-select:none; position:relative;}
-.lang a{text-decoration:none; color:rgba(233,238,247,.62); padding:8px 6px; transition:color .15s ease, transform .15s ease;  border-bottom: 1px solid transparent;
-}
+.lang a{text-decoration:none; color:rgba(233,238,247,.62); padding:8px 6px; transition:color .15s ease, transform .15s ease;}
 .lang a:hover{color:rgba(233,238,247,.92); transform:translateY(-1px);}
-.lang a.active{color:rgba(233,238,247,1);  border-bottom-color: transparent;
-}
+.lang a.active{color:rgba(233,238,247,1);}
+.lang:after{content:""; position:absolute; right:0; bottom:-6px; width:28px; height:1px; background: rgba(255,255,255,.12);}
+
 .brandCard{
   background:#F5F7FB;
   color:#0F172A;
@@ -96,24 +96,17 @@ a{color:inherit}
 .h1{font-size:44px; line-height:1.06; letter-spacing:-.03em; margin:2px 0 8px;}
 .p{color:rgba(233,238,247,.82); font-size:15.5px; line-height:1.7; max-width:72ch; margin:0 0 14px;}
 
-.tags{display:flex; flex-wrap:wrap; gap:12px; margin-top:6px;}
-.tag{display:inline-flex; align-items:center; gap:12px; padding:11px 18px; border-radius:999px; border:1px solid rgba(255,255,255,.12); background:rgba(255,255,255,.04); color:rgba(233,238,247,.82); font-size:14.5px; letter-spacing:.01em; min-height:44px;}
-
-
-.tagIcon{width:18px;height:18px;opacity:.95;display:block;flex:0 0 18px;}
-
-.tag span{line-height:1;}
-
-
-.tag:active{transform: translateY(1px); background: rgba(255,255,255,.06);}
+.tags{display:flex; flex-wrap:wrap; gap:10px; margin-top:4px;}
+.tag{display:inline-flex; align-items:center; gap:14px; padding:8px 12px; border-radius:999px; border:1px solid rgba(255,255,255,.10); background:rgba(255,255,255,.04); color:rgba(233,238,247,.82); font-size:12.5px; letter-spacing:.01em;}
+.tagIcon{width:23px;height:23px;flex:0 0 23px;}
+.tag svg{opacity:.9}
 
 .microCta{margin-top:14px; color:rgba(233,238,247,.75); font-size:13.5px; display:flex; align-items:baseline; gap:10px; flex-wrap:wrap;}
 .microCta a{color:var(--accent); text-decoration:none; border-bottom:1px solid rgba(29,78,216,.55); padding-bottom:2px; transition:border-color .15s ease, transform .15s ease;}
 .microCta a:hover{border-color:rgba(29,78,216,1); transform:translateX(2px);}
 
 .grid3{display:grid; grid-template-columns:1fr; gap:14px; margin-bottom:18px;}
-.card{background: linear-gradient(180deg, rgba(12,18,35,.96), rgba(9,14,28,.96)); border: 1px solid rgba(255,255,255,.08); border-radius: var(--cardRadius); padding: 18px 18px 16px; box-shadow: inset 0 1px 0 rgba(255,255,255,.04), var(--shadow);
-  }
+.card{background: linear-gradient(180deg, rgba(12,18,35,.96), rgba(9,14,28,.96)); border: 1px solid rgba(255,255,255,.08); border-radius: var(--cardRadius); padding: 18px 18px 16px; box-shadow: var(--shadow);}
 .card h3{margin:0 0 10px; font-size:18px; letter-spacing:-.02em;}
 .card ul{margin:0; padding-left:18px; color:rgba(233,238,247,.78); line-height:1.75;}
 .card li{margin:4px 0}
@@ -129,14 +122,11 @@ textarea.field{min-height:110px; resize:vertical}
 .btn{border:0; border-radius:12px; padding:12px 14px; font-weight:700; letter-spacing:.02em; cursor:pointer; color:#081023; background:linear-gradient(90deg, #6AA6FF, #7EE7E7, #91F7C2); box-shadow: 0 10px 30px rgba(29,78,216,.22);}
 .btn:active{transform: translateY(1px)}
 
-.footer{margin-top: 18px; text-align:center; color:rgba(233,238,247,.55); font-size:12.5px; padding-bottom: 10px;}
+.footer{margin-top:14px; text-align:center; color:rgba(233,238,247,.55); font-size:12.5px; padding-bottom:6px;}
 .hr{height:1px; background:rgba(255,255,255,.08); margin:12px 0 0; border:0;}
 
 @media (min-width: 860px){
-  .wrap{ padding: 34px 0 46px; 
-  .tag{padding:12px 20px; font-size:15px; min-height:46px;}
-  .tagIcon{width:19px;height:19px;flex:0 0 19px;}
-}
+  .wrap{ padding: 34px 0 46px; }
   .topbar{ margin-bottom: 22px; }
   .hero{ padding: 34px 34px 26px;}
   .panel{ padding: 34px;}
@@ -175,23 +165,19 @@ textarea.field{min-height:110px; resize:vertical}
     transform: translateX(10px);
   }
   .floatMail a{
-    width: 66px;
+    width: 56px;
     height: 48px;
     display:flex;
     align-items:center;
-    justify-content:center; /* reverse D shape */
+    justify-content:center;
+    border-radius: 999px 0 0 999px; /* reverse D shape */
     background: linear-gradient(90deg, #6AA6FF, #7EE7E7, #91F7C2);
     color: #081023;
     text-decoration:none;
-    box-shadow: 0 14px 40px rgba(0,0,0,.45); /* cleaner edge contact */
-  
-    border: 0;
-    outline: 0;
-    overflow: hidden;
-    background-clip: padding-box;
-    transform: translateZ(0);
-    border-radius: 999px 0 0 999px;
-}
+    box-shadow: 0 14px 40px rgba(0,0,0,.45);
+    border: 1px solid rgba(255,255,255,.10);
+    border-right: 0; /* cleaner edge contact */
+  }
   .floatMail svg{ display:block; transform: translateY(-.5px); } /* nudge up to optical center */
   .floatMail a:active{ transform: translateY(1px); }
 }
@@ -222,14 +208,13 @@ textarea.field{min-height:110px; resize:vertical}
         <p class="p">G2 Solutions provides practical IT support for small businesses, along with financial consulting and training tailored to real operational needs.</p>
 
         <div class="tags" aria-label="Services">
-<span class="tag"><img class="tagIcon" src="../assets/icons/computers.svg" alt="" aria-hidden="true" /><span>Computers</span></span>
-<span class="tag"><img class="tagIcon" src="../assets/icons/servers.svg" alt="" aria-hidden="true" /><span>Servers</span></span>
-<span class="tag"><img class="tagIcon" src="../assets/icons/backup.svg" alt="" aria-hidden="true" /><span>Backup</span></span>
-<span class="tag"><img class="tagIcon" src="../assets/icons/networking.svg" alt="" aria-hidden="true" /><span>Networking</span></span>
-<span class="tag"><img class="tagIcon" src="../assets/icons/security.svg" alt="" aria-hidden="true" /><span>Security</span></span>
-<span class="tag"><img class="tagIcon" src="../assets/icons/iot.svg" alt="" aria-hidden="true" /><span>IoT</span></span>
-<span class="tag"><img class="tagIcon" src="../assets/icons/finance_graph.svg" alt="" aria-hidden="true" /><span>Finance</span></span>
-<span class="tag"><img class="tagIcon" src="../assets/icons/training.svg" alt="" aria-hidden="true" /><span>Training</span></span>
+          <span class="tag"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3h11A2.5 2.5 0 0 1 20 5.5v8A2.5 2.5 0 0 1 17.5 16h-11A2.5 2.5 0 0 1 4 13.5v-8Z" stroke="currentColor" stroke-width="1.6"/><path d="M9 20h6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M12 16v4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><span>Computers</span></span>
+          <span class="tag"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 6a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6Z" stroke="currentColor" stroke-width="1.6"/><path d="M5 15a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-3Z" stroke="currentColor" stroke-width="1.6"/><path d="M8 7h.01M8 16h.01" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg><span>Servers</span></span>
+          <span class="tag"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M21 12a9 9 0 1 1-3.1-6.7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M21 4v6h-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Backup</span></span>
+          <span class="tag"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 12h16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M12 4v16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M7 7c3 3 7 3 10 0" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M7 17c3-3 7-3 10 0" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><span>Networking</span></span>
+          <span class="tag"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3l8 4v6c0 5-3.5 8.5-8 9-4.5-.5-8-4-8-9V7l8-4Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg><span>Security</span></span>
+          <span class="tag"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 12a3 3 0 1 0 6 0 3 3 0 0 0-6 0Z" stroke="currentColor" stroke-width="1.6"/><path d="M4.5 9.5c4.6-4.6 10.4-4.6 15 0" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M7.5 16.5c2.9 2.9 6.1 2.9 9 0" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><span>IoT</span></span>
+          <span class="tag"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 7l8-4 8 4-8 4-8-4Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M6 10v6c0 1 3 3 6 3s6-2 6-3v-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><span>Training</span></span>
         </div>
 
         <div class="microCta">
@@ -248,7 +233,8 @@ textarea.field{min-height:110px; resize:vertical}
     <section id="contact" class="panel contact" aria-label="Contact form">
       <h2>Contact</h2>
       <p class="note">We usually respond within 24 hours on business days.</p>
-<form class="form" action="mailto:info@g2.hr" method="post" enctype="text/plain">
+      <hr class="hr" />
+      <form class="form" action="mailto:info@g2.hr" method="post" enctype="text/plain">
         <input class="field" name="name" type="text" placeholder="Name and company" autocomplete="name" required />
         <input class="field" name="email" type="email" placeholder="Email" autocomplete="email" required />
         <textarea class="field" name="message" placeholder="Message" required></textarea>
@@ -256,7 +242,7 @@ textarea.field{min-height:110px; resize:vertical}
       </form>
     </section>
 
-    <footer class="footer">© 2025 G2 Solutions · info@g2.hr</footer>
+    <footer class="footer">© 2025 G2 Solutions · Zagreb, Croatia · info@g2.hr</footer>
   </main>
 
   <div class="floatMail" aria-label="Quick email shortcut">
