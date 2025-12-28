@@ -57,6 +57,8 @@ a{color:inherit}
 .lang a{text-decoration:none; color:rgba(233,238,247,.62); padding:8px 6px; transition:color .15s ease, transform .15s ease;}
 .lang a:hover{color:rgba(233,238,247,.92); transform:translateY(-1px);}
 .lang a.active{color:rgba(233,238,247,1);}
+.lang:after{content:""; position:absolute; right:0; bottom:-6px; width:28px; height:1px; background: rgba(255,255,255,.12);}
+
 .brandCard{
   background:#F5F7FB;
   color:#0F172A;
@@ -96,14 +98,17 @@ a{color:inherit}
 
 .tags{display:flex; flex-wrap:wrap; gap:10px; margin-top:4px;}
 .tag{display:inline-flex; align-items:center; gap:8px; padding:8px 12px; border-radius:999px; border:1px solid rgba(255,255,255,.10); background:rgba(255,255,255,.04); color:rgba(233,238,247,.82); font-size:12.5px; letter-spacing:.01em;}
-.tag svg{opacity:.9}
+\.tag svg\{opacity:\.9\}
+
+.tag:active{transform: translateY(1px); background: rgba(255,255,255,.06);}
 
 .microCta{margin-top:14px; color:rgba(233,238,247,.75); font-size:13.5px; display:flex; align-items:baseline; gap:10px; flex-wrap:wrap;}
 .microCta a{color:var(--accent); text-decoration:none; border-bottom:1px solid rgba(29,78,216,.55); padding-bottom:2px; transition:border-color .15s ease, transform .15s ease;}
 .microCta a:hover{border-color:rgba(29,78,216,1); transform:translateX(2px);}
 
 .grid3{display:grid; grid-template-columns:1fr; gap:14px; margin-bottom:18px;}
-.card{background: linear-gradient(180deg, rgba(12,18,35,.96), rgba(9,14,28,.96)); border: 1px solid rgba(255,255,255,.08); border-radius: var(--cardRadius); padding: 18px 18px 16px; box-shadow: var(--shadow);}
+.card{background: linear-gradient(180deg, rgba(12,18,35,.96), rgba(9,14,28,.96)); border: 1px solid rgba(255,255,255,.08); border-radius: var(--cardRadius); padding: 18px 18px 16px; box-shadow: inset 0 1px 0 rgba(255,255,255,.04), var(--shadow);
+  }
 .card h3{margin:0 0 10px; font-size:18px; letter-spacing:-.02em;}
 .card ul{margin:0; padding-left:18px; color:rgba(233,238,247,.78); line-height:1.75;}
 .card li{margin:4px 0}
@@ -119,7 +124,7 @@ textarea.field{min-height:110px; resize:vertical}
 .btn{border:0; border-radius:12px; padding:12px 14px; font-weight:700; letter-spacing:.02em; cursor:pointer; color:#081023; background:linear-gradient(90deg, #6AA6FF, #7EE7E7, #91F7C2); box-shadow: 0 10px 30px rgba(29,78,216,.22);}
 .btn:active{transform: translateY(1px)}
 
-.footer{margin-top:14px; text-align:center; color:rgba(233,238,247,.55); font-size:12.5px; padding-bottom:6px;}
+.footer{margin-top: 18px; text-align:center; color:rgba(233,238,247,.55); font-size:12.5px; padding-bottom: 10px;}
 .hr{height:1px; background:rgba(255,255,255,.08); margin:12px 0 0; border:0;}
 
 @media (min-width: 860px){
@@ -172,10 +177,10 @@ textarea.field{min-height:110px; resize:vertical}
     color: #081023;
     text-decoration:none;
     box-shadow: 0 14px 40px rgba(0,0,0,.45);
-    border: 0;
-    overflow: hidden;
+    border: 1px solid rgba(255,255,255,.10);
+    border-right: 0; /* cleaner edge contact */
   }
-  .floatMail svg{ display:block; transform: translateY(-1px); } /* nudge up to optical center */
+  .floatMail svg{ display:block; transform: translateY(-.5px); } /* nudge up to optical center */
   .floatMail a:active{ transform: translateY(1px); }
 }
 </style>
@@ -230,7 +235,7 @@ textarea.field{min-height:110px; resize:vertical}
     <section id="contact" class="panel contact" aria-label="Contact form">
       <h2>Contact</h2>
       <p class="note">We usually respond within 24 hours on business days.</p>
-      
+      <hr class="hr" />
       <form class="form" action="mailto:info@g2.hr" method="post" enctype="text/plain">
         <input class="field" name="name" type="text" placeholder="Name and company" autocomplete="name" required />
         <input class="field" name="email" type="email" placeholder="Email" autocomplete="email" required />
@@ -244,9 +249,9 @@ textarea.field{min-height:110px; resize:vertical}
 
   <div class="floatMail" aria-label="Quick email shortcut">
     <a href="#contact" title="Send an enquiry" aria-label="Send an enquiry">
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-  <path d="M4.5 7.5h15A2.5 2.5 0 0 1 22 10v8A2.5 2.5 0 0 1 19.5 20.5h-15A2.5 2.5 0 0 1 2 18v-8A2.5 2.5 0 0 1 4.5 7.5Z" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"/>
-  <path d="M3.2 9.2 12 14.6l8.8-5.4" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/>
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+  <path d="M4.5 7.5h15A2.5 2.5 0 0 1 22 10v8A2.5 2.5 0 0 1 19.5 20.5h-15A2.5 2.5 0 0 1 2 18v-8A2.5 2.5 0 0 1 4.5 7.5Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+  <path d="M3.2 9.2 12 14.6l8.8-5.4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>
     </a>
   </div>
