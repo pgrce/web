@@ -98,7 +98,8 @@ a{color:inherit}
 
 .tags{display:flex; flex-wrap:wrap; gap:10px; margin-top:4px;}
 .tag{display:inline-flex; align-items:center; gap:14px; padding:8px 12px; border-radius:999px; border:1px solid rgba(255,255,255,.10); background:rgba(255,255,255,.04); color:rgba(233,238,247,.82); font-size:12.5px; letter-spacing:.01em;}
-.tagIcon{width:23px;height:23px;flex:0 0 23px;}
+.tagIcon{width:23px !important;height:23px !important;flex:0 0 23px !important;display:block;}
+
 .tag svg{opacity:.9}
 
 .microCta{margin-top:14px; color:rgba(233,238,247,.75); font-size:13.5px; display:flex; align-items:baseline; gap:10px; flex-wrap:wrap;}
@@ -181,6 +182,14 @@ textarea.field{min-height:110px; resize:vertical}
   .floatMail svg{ display:block; transform: translateY(-.5px); } /* nudge up to optical center */
   .floatMail a:active{ transform: translateY(1px); }
 }
+
+.lang a{border-bottom:0 !important;text-decoration:none !important;background:none !important;}
+.lang a::after{content:none !important;display:none !important;}
+.lang a.active{border-bottom:0 !important;text-decoration:none !important;box-shadow:none !important;}
+.lang a.active::after{content:none !important;display:none !important;}
+
+
+.hr{display:none !important;}
 </style>
 </head>
 <body>
@@ -233,7 +242,7 @@ textarea.field{min-height:110px; resize:vertical}
     <section id="contact" class="panel contact" aria-label="Contact form">
       <h2>Kontakt</h2>
       <p class="note">Obično odgovaramo unutar 24 sata radnim danima.</p>
-      <hr class="hr" />
+      
       <form class="form" action="mailto:info@g2.hr" method="post" enctype="text/plain">
         <input class="field" name="name" type="text" placeholder="Ime i tvrtka" autocomplete="name" required />
         <input class="field" name="email" type="email" placeholder="Email" autocomplete="email" required />
