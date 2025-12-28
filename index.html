@@ -8,8 +8,11 @@
     (function () {
       const saved = localStorage.getItem('lang'); // 'hr' or 'en'
       const lang = (saved || navigator.language || navigator.userLanguage || 'en').toLowerCase();
-      const base = location.pathname.replace(/\/[^\/]*$/, '/'); // folder where index.html lives
+
+      // Keep current base path (works for GitHub Pages project sites, e.g. /web/)
+      const base = location.pathname.replace(/\/[^\/]*$/, '/');
       const target = lang.startsWith('hr') ? 'hr/' : 'en/';
+
       location.replace(base + target);
     })();
   </script>
