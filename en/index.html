@@ -98,7 +98,9 @@ a{color:inherit}
 
 .tags{display:flex; flex-wrap:wrap; gap:10px; margin-top:4px;}
 .tag{
-display:inline-flex; align-items:center; gap:8px; padding:8px 12px; border-radius:999px; border:1px solid rgba(255,255,255,.10); background:rgba(255,255,255,.04); color:rgba(233,238,247,.82); font-size:12.5px; letter-spacing:.01em;}
+display:inline-flex; align-items:center; gap:8px; padding:8px 12px; border-radius:999px; border:1px solid rgba(255,255,255,.10); background:rgba(255,255,255,.04); color:rgba(233,238,247,.82); font-size:12.5px; letter-spacing:.01em;  line-height: 1;
+  }
+
 \.tag svg\{opacity:\.9\}
 
 .tag:active{transform: translateY(1px); background: rgba(255,255,255,.06);}
@@ -168,7 +170,7 @@ textarea.field{min-height:110px; resize:vertical}
     transform: translateX(10px);
   }
   .floatMail a{
-    width: 56px;
+    width: 66px;
     height: 48px;
     display:flex;
     align-items:center;
@@ -183,6 +185,7 @@ textarea.field{min-height:110px; resize:vertical}
     overflow: hidden;
     background-clip: padding-box;
     transform: translateZ(0);
+    border-radius: 999px 0 0 999px;
 }
   .floatMail svg{ display:block; transform: translateY(-.5px); } /* nudge up to optical center */
   .floatMail a:active{ transform: translateY(1px); }
