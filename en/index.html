@@ -96,16 +96,11 @@ a{color:inherit}
 .h1{font-size:44px; line-height:1.06; letter-spacing:-.03em; margin:2px 0 8px;}
 .p{color:rgba(233,238,247,.82); font-size:15.5px; line-height:1.7; max-width:72ch; margin:0 0 14px;}
 
-.tags{display:flex; flex-wrap:wrap; gap:12px; margin-top:4px;}
-.tag{
-display:inline-flex; align-items:center; gap:10px; padding:9px 14px; border-radius:999px; border:1px solid rgba(255,255,255,.10); background:rgba(255,255,255,.04); color:rgba(233,238,247,.82); font-size:13.5px; letter-spacing:.01em;  line-height: 1;
-    display:inline-flex;
-  white-space: nowrap;
-  min-height:38px;
-}
+.tags{display:flex; flex-wrap:wrap; gap:12px; margin-top:6px;}
+.tag{display:inline-flex; align-items:center; gap:12px; padding:11px 18px; border-radius:999px; border:1px solid rgba(255,255,255,.12); background:rgba(255,255,255,.04); color:rgba(233,238,247,.82); font-size:14.5px; letter-spacing:.01em; min-height:44px;}
 
 
-.tagIcon{width:16px;height:16px;opacity:.95;display:block;flex:0 0 16px;}
+.tagIcon{width:18px;height:18px;opacity:.95;display:block;flex:0 0 18px;}
 
 .tag span{line-height:1;}
 
@@ -138,7 +133,10 @@ textarea.field{min-height:110px; resize:vertical}
 .hr{height:1px; background:rgba(255,255,255,.08); margin:12px 0 0; border:0;}
 
 @media (min-width: 860px){
-  .wrap{ padding: 34px 0 46px; }
+  .wrap{ padding: 34px 0 46px; 
+  .tag{padding:12px 20px; font-size:15px; min-height:46px;}
+  .tagIcon{width:19px;height:19px;flex:0 0 19px;}
+}
   .topbar{ margin-bottom: 22px; }
   .hero{ padding: 34px 34px 26px;}
   .panel{ padding: 34px;}
