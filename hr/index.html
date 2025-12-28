@@ -54,11 +54,11 @@ a{color:inherit}
 
 .topbar{display:flex; align-items:center; justify-content:flex-end; margin-bottom:16px;}
 .lang{display:flex; gap:18px; font-size:12px; letter-spacing:.06em; text-transform:uppercase; user-select:none; position:relative;}
-.lang a{text-decoration:none; color:rgba(233,238,247,.62); padding:8px 6px; transition:color .15s ease, transform .15s ease;}
+.lang a{text-decoration:none; color:rgba(233,238,247,.62); padding:8px 6px; transition:color .15s ease, transform .15s ease;  border-bottom: 1px solid transparent;
+}
 .lang a:hover{color:rgba(233,238,247,.92); transform:translateY(-1px);}
-.lang a.active{color:rgba(233,238,247,1);}
-.lang:after{content:""; position:absolute; right:0; bottom:-6px; width:28px; height:1px; background: rgba(255,255,255,.12);}
-
+.lang a.active{color:rgba(233,238,247,1);  border-bottom-color: transparent;
+}
 .brandCard{
   background:#F5F7FB;
   color:#0F172A;
@@ -235,8 +235,7 @@ textarea.field{min-height:110px; resize:vertical}
     <section id="contact" class="panel contact" aria-label="Kontakt obrazac">
       <h2>Kontakt</h2>
       <p class="note">Obično odgovaramo unutar 24 sata radnim danima.</p>
-      <hr class="hr" />
-      <form class="form" action="mailto:info@g2.hr" method="post" enctype="text/plain">
+<form class="form" action="mailto:info@g2.hr" method="post" enctype="text/plain">
         <input class="field" name="name" type="text" placeholder="Ime i tvrtka" autocomplete="name" required />
         <input class="field" name="email" type="email" placeholder="Email" autocomplete="email" required />
         <textarea class="field" name="message" placeholder="Poruka" required></textarea>
@@ -244,7 +243,7 @@ textarea.field{min-height:110px; resize:vertical}
       </form>
     </section>
 
-    <footer class="footer">© 2025 G2 Solutions · Zagreb, Hrvatska · info@g2.hr</footer>
+    <footer class="footer">© 2025 G2 Solutions · info@g2.hr</footer>
   </main>
 
   <div class="floatMail" aria-label="Brzi prečac za kontakt">
