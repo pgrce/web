@@ -97,7 +97,8 @@ a{color:inherit}
 .p{color:rgba(233,238,247,.82); font-size:15.5px; line-height:1.7; max-width:72ch; margin:0 0 14px;}
 
 .tags{display:flex; flex-wrap:wrap; gap:10px; margin-top:4px;}
-.tag{display:inline-flex; align-items:center; gap:8px; padding:8px 12px; border-radius:999px; border:1px solid rgba(255,255,255,.10); background:rgba(255,255,255,.04); color:rgba(233,238,247,.82); font-size:12.5px; letter-spacing:.01em;}
+.tag{
+display:inline-flex; align-items:center; gap:8px; padding:8px 12px; border-radius:999px; border:1px solid rgba(255,255,255,.10); background:rgba(255,255,255,.04); color:rgba(233,238,247,.82); font-size:12.5px; letter-spacing:.01em;}
 \.tag svg\{opacity:\.9\}
 
 .tag:active{transform: translateY(1px); background: rgba(255,255,255,.06);}
@@ -171,15 +172,18 @@ textarea.field{min-height:110px; resize:vertical}
     height: 48px;
     display:flex;
     align-items:center;
-    justify-content:center;
-    border-radius: 999px 0 0 999px; /* reverse D shape */
+    justify-content:center; /* reverse D shape */
     background: linear-gradient(90deg, #6AA6FF, #7EE7E7, #91F7C2);
     color: #081023;
     text-decoration:none;
-    box-shadow: 0 14px 40px rgba(0,0,0,.45);
-    border: 1px solid rgba(255,255,255,.10);
-    border-right: 0; /* cleaner edge contact */
-  }
+    box-shadow: 0 14px 40px rgba(0,0,0,.45); /* cleaner edge contact */
+  
+    border: 0;
+    outline: 0;
+    overflow: hidden;
+    background-clip: padding-box;
+    transform: translateZ(0);
+}
   .floatMail svg{ display:block; transform: translateY(-.5px); } /* nudge up to optical center */
   .floatMail a:active{ transform: translateY(1px); }
 }
@@ -210,13 +214,14 @@ textarea.field{min-height:110px; resize:vertical}
         <p class="p">G2 Solutions provides practical IT support for small businesses, along with financial consulting and training tailored to real operational needs.</p>
 
         <div class="tags" aria-label="Services">
-          <span class="tag"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3h11A2.5 2.5 0 0 1 20 5.5v8A2.5 2.5 0 0 1 17.5 16h-11A2.5 2.5 0 0 1 4 13.5v-8Z" stroke="currentColor" stroke-width="1.6"/><path d="M9 20h6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M12 16v4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><span>Computers</span></span>
-          <span class="tag"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 6a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6Z" stroke="currentColor" stroke-width="1.6"/><path d="M5 15a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-3Z" stroke="currentColor" stroke-width="1.6"/><path d="M8 7h.01M8 16h.01" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg><span>Servers</span></span>
-          <span class="tag"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M21 12a9 9 0 1 1-3.1-6.7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M21 4v6h-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Backup</span></span>
-          <span class="tag"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 12h16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M12 4v16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M7 7c3 3 7 3 10 0" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M7 17c3-3 7-3 10 0" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><span>Networking</span></span>
-          <span class="tag"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3l8 4v6c0 5-3.5 8.5-8 9-4.5-.5-8-4-8-9V7l8-4Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg><span>Security</span></span>
-          <span class="tag"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 12a3 3 0 1 0 6 0 3 3 0 0 0-6 0Z" stroke="currentColor" stroke-width="1.6"/><path d="M4.5 9.5c4.6-4.6 10.4-4.6 15 0" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M7.5 16.5c2.9 2.9 6.1 2.9 9 0" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><span>IoT</span></span>
-          <span class="tag"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 7l8-4 8 4-8 4-8-4Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M6 10v6c0 1 3 3 6 3s6-2 6-3v-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg><span>Training</span></span>
+<span class="tag"><img class="tagIcon" src="../assets/icons/computers.svg" alt="" aria-hidden="true" /><span>Computers</span></span>
+<span class="tag"><img class="tagIcon" src="../assets/icons/servers.svg" alt="" aria-hidden="true" /><span>Servers</span></span>
+<span class="tag"><img class="tagIcon" src="../assets/icons/backup.svg" alt="" aria-hidden="true" /><span>Backup</span></span>
+<span class="tag"><img class="tagIcon" src="../assets/icons/networking.svg" alt="" aria-hidden="true" /><span>Networking</span></span>
+<span class="tag"><img class="tagIcon" src="../assets/icons/security.svg" alt="" aria-hidden="true" /><span>Security</span></span>
+<span class="tag"><img class="tagIcon" src="../assets/icons/iot.svg" alt="" aria-hidden="true" /><span>IoT</span></span>
+<span class="tag"><img class="tagIcon" src="../assets/icons/finance_graph.svg" alt="" aria-hidden="true" /><span>Finance</span></span>
+<span class="tag"><img class="tagIcon" src="../assets/icons/training.svg" alt="" aria-hidden="true" /><span>Training</span></span>
         </div>
 
         <div class="microCta">
