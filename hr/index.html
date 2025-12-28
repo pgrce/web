@@ -57,8 +57,6 @@ a{color:inherit}
 .lang a{text-decoration:none; color:rgba(233,238,247,.62); padding:8px 6px; transition:color .15s ease, transform .15s ease;}
 .lang a:hover{color:rgba(233,238,247,.92); transform:translateY(-1px);}
 .lang a.active{color:rgba(233,238,247,1);}
-.lang:after{content:""; position:absolute; right:0; bottom:-6px; width:28px; height:1px; background: rgba(255,255,255,.12);}
-
 .brandCard{
   background:#F5F7FB;
   color:#0F172A;
@@ -174,10 +172,10 @@ textarea.field{min-height:110px; resize:vertical}
     color: #081023;
     text-decoration:none;
     box-shadow: 0 14px 40px rgba(0,0,0,.45);
-    border: 1px solid rgba(255,255,255,.10);
-    border-right: 0; /* cleaner edge contact */
+    border: 0;
+    overflow: hidden;
   }
-  .floatMail svg{ display:block; transform: translateY(-.5px); } /* nudge up to optical center */
+  .floatMail svg{ display:block; transform: translateY(-1px); } /* nudge up to optical center */
   .floatMail a:active{ transform: translateY(1px); }
 }
 </style>
@@ -232,7 +230,7 @@ textarea.field{min-height:110px; resize:vertical}
     <section id="contact" class="panel contact" aria-label="Contact form">
       <h2>Kontakt</h2>
       <p class="note">Obično odgovaramo unutar 24 sata radnim danima.</p>
-      <hr class="hr" />
+      
       <form class="form" action="mailto:info@g2.hr" method="post" enctype="text/plain">
         <input class="field" name="name" type="text" placeholder="Ime i tvrtka" autocomplete="name" required />
         <input class="field" name="email" type="email" placeholder="Email" autocomplete="email" required />
@@ -246,9 +244,9 @@ textarea.field{min-height:110px; resize:vertical}
 
   <div class="floatMail" aria-label="Quick email shortcut">
     <a href="#contact" title="Send an enquiry" aria-label="Send an enquiry">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-  <path d="M4.5 7.5h15A2.5 2.5 0 0 1 22 10v8A2.5 2.5 0 0 1 19.5 20.5h-15A2.5 2.5 0 0 1 2 18v-8A2.5 2.5 0 0 1 4.5 7.5Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
-  <path d="M3.2 9.2 12 14.6l8.8-5.4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+  <path d="M4.5 7.5h15A2.5 2.5 0 0 1 22 10v8A2.5 2.5 0 0 1 19.5 20.5h-15A2.5 2.5 0 0 1 2 18v-8A2.5 2.5 0 0 1 4.5 7.5Z" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"/>
+  <path d="M3.2 9.2 12 14.6l8.8-5.4" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>
     </a>
   </div>
