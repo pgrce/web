@@ -1,9 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
-  <!-- Refined shield + lock: keyhole moved up -->
-  <g fill="none" stroke="#FFFFFF" stroke-width="18" stroke-linecap="round" stroke-linejoin="round">
-
-    <!-- Shield outline -->
+  <g fill="none" stroke="#FFFFFF" stroke-width="22" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Shield -->
     <path d="
       M256 56
       C196 100 128 112 112 120
@@ -15,30 +12,19 @@
       Z
     "/>
 
-    <!-- Lock body -->
-    <rect x="188" y="220" width="136" height="140" rx="22" ry="22"/>
+    <!-- Lock body (bigger) -->
+    <rect x="186" y="236" width="140" height="132" rx="20"/>
 
-    <!-- Shackle -->
+    <!-- Shackle (bigger) -->
     <path d="
-      M208 220
-      V188
-      C208 148 238 120 256 120
-      C274 120 304 148 304 188
-      V220
+      M212 236
+      V206
+      C212 168 300 168 300 206
+      V236
     "/>
 
-    <!-- Keyhole (moved up for clearance) -->
-    <path d="
-      M256 268
-      C242 268 232 279 232 292
-      C232 304 238 313 248 318
-      V342
-      H264
-      V318
-      C274 313 280 304 280 292
-      C280 279 270 268 256 268
-      Z
-    "/>
-
+    <!-- Keyhole: circle + stem (guaranteed gap from top) -->
+    <circle cx="256" cy="292" r="18"/>
+    <path d="M256 310V354"/>
   </g>
 </svg>
