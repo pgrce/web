@@ -1,30 +1,36 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
-  <g fill="none" stroke="#FFFFFF" stroke-width="22" stroke-linecap="round" stroke-linejoin="round">
-    <!-- Shield -->
-    <path d="
-      M256 56
-      C196 100 128 112 112 120
-      V272
-      C112 380 198 448 256 480
-      C314 448 400 380 400 272
-      V120
-      C384 112 316 100 256 56
-      Z
-    "/>
+<svg xmlns="http://www.w3.org/2000/svg"
+     viewBox="0 0 24 24"
+     fill="none"
+     stroke="#FFFFFF"
+     stroke-width="1.8"
+     stroke-linecap="round"
+     stroke-linejoin="round">
 
-    <!-- Lock body (bigger) -->
-    <rect x="186" y="236" width="140" height="132" rx="20"/>
+  <!-- Shield (wider, lighter) -->
+  <path d="
+    M12 2.5
+    C9 4.3 5.5 5.1 4.5 5.4
+    V11.8
+    C4.5 16.5 8.8 19.5 12 21
+    C15.2 19.5 19.5 16.5 19.5 11.8
+    V5.4
+    C18.5 5.1 15 4.3 12 2.5
+    Z
+  "/>
 
-    <!-- Shackle (bigger) -->
-    <path d="
-      M212 236
-      V206
-      C212 168 300 168 300 206
-      V236
-    "/>
+  <!-- Lock body (bigger) -->
+  <rect x="8" y="10.2" width="8" height="7.2" rx="1.2"/>
 
-    <!-- Keyhole: circle + stem (guaranteed gap from top) -->
-    <circle cx="256" cy="292" r="18"/>
-    <path d="M256 310V354"/>
-  </g>
+  <!-- Shackle -->
+  <path d="
+    M9.5 10.2
+    V8.6
+    C9.5 6.8 14.5 6.8 14.5 8.6
+    V10.2
+  "/>
+
+  <!-- Keyhole (circle + stem, no top contact) -->
+  <circle cx="12" cy="13.3" r="0.9"/>
+  <path d="M12 14.2V16.2"/>
+
 </svg>
