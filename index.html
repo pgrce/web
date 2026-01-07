@@ -1,21 +1,36 @@
 <!doctype html>
-<html lang="en">
+<html lang="en-GB">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>G2 Solutions</title>
+
+  <!-- Language alternates -->
+  <link rel="alternate" hreflang="hr" href="https://g2.hr/hr/" />
+  <link rel="alternate" hreflang="en-GB" href="https://g2.hr/en/" />
+  <link rel="alternate" hreflang="x-default" href="https://g2.hr/en/" />
+
   <script>
     (function () {
-      const saved = localStorage.getItem('lang'); // 'hr' or 'en'
-      const lang = (saved || navigator.language || navigator.userLanguage || 'en').toLowerCase();
+      try {
+        const saved = localStorage.getItem('lang'); // 'hr' or 'en'
+        const lang = (saved || navigator.language || navigator.userLanguage || 'en').toLowerCase();
 
-      // Keep current base path (works for GitHub Pages project sites, e.g. /web/)
-      const base = location.pathname.replace(/\/[^\/]*$/, '/');
-      const target = lang.startsWith('hr') ? 'hr/' : 'en/';
+        // Keep current base path (works for GitHub Pages project sites, e.g. /repo/)
+        const base = location.pathname.replace(/\/[^\/]*$/, '/');
+        const target = lang.startsWith('hr') ? 'hr/' : 'en/';
 
-      location.replace(base + target);
+        location.replace(base + target);
+      } catch (e) {
+        location.replace('/en/');
+      }
     })();
   </script>
+
+  <!-- Fallback for users with JavaScript disabled -->
+  <noscript>
+    <meta http-equiv="refresh" content="0; url=/en/" />
+  </noscript>
 </head>
 <body></body>
 </html>

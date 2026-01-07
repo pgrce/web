@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://g2.hr/sitemap.xml
