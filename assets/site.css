@@ -154,7 +154,7 @@ a{color:inherit}
   padding: 18px 18px 16px;
   box-shadow: inset 0 1px 0 rgba(255,255,255,.04), var(--shadow);
 }
-.card h3{margin:0 0 10px; font-size:18px; letter-spacing:-.02em;}
+.card h2{margin:0 0 10px; font-size:18px; letter-spacing:-.02em;}
 .card ul{margin:0; padding-left:18px; color:rgba(233,238,247,.78); line-height:1.75;}
 .card li{margin:4px 0}
 
